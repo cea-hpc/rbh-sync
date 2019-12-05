@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1f5072e_d813896f",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-05T09:23:16Z",
+      "side": 1,
+      "message": "\"link\" can refer to several things (hard link, symbolic link, other...). Not obvious here. A comment could help.\nIs this a \"follow/no follow\" option?",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c51c7dd0_adb8978e",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-05T09:23:16Z",
+      "side": 1,
+      "message": "(Q) What are the typical cases where it returns EAGAIN?",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 35
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b40d27ac_fe815e40",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-05T09:23:16Z",
+      "side": 1,
+      "message": "It looks the main execution flow of the function is mainly based on labels and gotos, like in BASIC or ASM...\nMy own \"health rule\" is it\u0027s OK to use gotos for handling error cases conveniently (like exceptions), but not to manage the main execution paths of code. Prefer higher level directive like while, do, for, etc.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "570d1559_ec6f4502",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-05T09:23:16Z",
+      "side": 1,
+      "message": "Can\u0027t this fail? I see no check of this returned value",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 41
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8137e8a0_4249d626",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-05T09:23:16Z",
+      "side": 1,
+      "message": "I see no check of this returned value",
+      "range": {
+        "startLine": 242,
+        "startChar": 4,
+        "endLine": 242,
+        "endChar": 39
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "561fde85_0aaa374a",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-05T09:23:16Z",
+      "side": 1,
+      "message": "(Q) why this value?\n(suggest) define a constant somewhere above\n eg. #define RBH_ITER_CHUNK_SIZE (1\u003c\u003c12)",
+      "range": {
+        "startLine": 256,
+        "startChar": 45,
+        "endLine": 256,
+        "endChar": 52
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
