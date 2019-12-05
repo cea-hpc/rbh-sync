@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "418e24d2_e6468ccd",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-05T09:43:27Z",
+      "side": 1,
+      "message": "This is the same \"link\" as in RBH_FET_LINK (robinhood/fsevent.h), which refers to the creation of any new entry in the namespace.\n\nI think this is a rather fitting name.",
+      "parentUuid": "a1f5072e_d813896f",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c51c7dd0_adb8978e",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-05T09:23:16Z",
       "side": 1,
       "message": "(Q) What are the typical cases where it returns EAGAIN?",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 35
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c336765f_bb371e88",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-05T09:43:27Z",
+      "side": 1,
+      "message": "The MongoDB C driver does it quite often.",
+      "parentUuid": "c51c7dd0_adb8978e",
       "range": {
         "startLine": 105,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "83245cb1_47158842",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-05T09:43:27Z",
+      "side": 1,
+      "message": "I agree, but I do not think it applies here. If you can come up with an alternative implementation that does not use gotos and is as least as readable as this one, I would be happy to switch over.",
+      "parentUuid": "b40d27ac_fe815e40",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "570d1559_ec6f4502",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2019-12-05T09:23:16Z",
       "side": 1,
       "message": "Can\u0027t this fail? I see no check of this returned value",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 41
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bfecddf_c425aa18",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-05T09:43:27Z",
+      "side": 1,
+      "message": "Yes, it can. But if it does, the program exits (which is convenient \u003d]).",
+      "parentUuid": "570d1559_ec6f4502",
       "range": {
         "startLine": 234,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "11f85d58_ff54727a",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-05T09:43:27Z",
+      "side": 1,
+      "message": "Same reason",
+      "parentUuid": "8137e8a0_4249d626",
+      "range": {
+        "startLine": 242,
+        "startChar": 4,
+        "endLine": 242,
+        "endChar": 39
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "561fde85_0aaa374a",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "657b3058_53e14afb",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-05T09:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "561fde85_0aaa374a",
+      "range": {
+        "startLine": 256,
+        "startChar": 45,
+        "endLine": 256,
+        "endChar": 52
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
