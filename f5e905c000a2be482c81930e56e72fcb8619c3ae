@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ad1250bc_b061db75",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-06T16:50:37Z",
+      "side": 1,
+      "message": "I agree it\u0027s not obvious in the code if you\u0027re not knee-deep in robinhood internals. From what I understand of your comment just now this is for new hard links of already existing files? could maybe rename both this and RBH_FET_LINK to hardlink or new_hardlink or new_link or....?",
+      "parentUuid": "418e24d2_e6468ccd",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c51c7dd0_adb8978e",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I agree, but I do not think it applies here. If you can come up with an alternative implementation that does not use gotos and is as least as readable as this one, I would be happy to switch over.",
       "parentUuid": "b40d27ac_fe815e40",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b988921e_e30fa3e0",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-06T16:50:37Z",
+      "side": 1,
+      "message": "Both this convert and next look like straightforward while(1) loops with continue/breaks?\n\nwhile(1) {\n  if (convert-\u003eupsert) {\n    ...\n  }\n  ...\n  convert-\u003efsentry \u003d NULL;\n\n  while(1) {\n    free(fsentry);\n    ...\n    if (!(fsentry-\u003emask \u0026 RBH_FP_ID))\n      continue;\n    ...\n    if (convert-\u003eupsert || convert-\u003elink)\n      break;\n  }\n\n  convert-\u003efsentry \u003d fsentry;\n  continue;\n}",
+      "parentUuid": "83245cb1_47158842",
       "range": {
         "startLine": 126,
         "startChar": 0,
