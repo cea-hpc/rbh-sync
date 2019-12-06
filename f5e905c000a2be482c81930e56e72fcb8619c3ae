@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "87c20028_b2dde3da",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-06T18:53:08Z",
+      "side": 1,
+      "message": "ah, yeah, I remember that now (and also read the code a bit :p)\nI guess a comment before both bools saying something like \u0027upsert/link fsevent needed\u0027 can\u0027t hurt anyway",
+      "parentUuid": "8f69cd25_4228e7c9",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c51c7dd0_adb8978e",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "But is it really better? Using gotos allows me to name the part of the code continues and breaks jump to.\n\nI just tried it, and I am not convinced. Without labels, I would need comments, and I would need them both around the \"while (1)\" and the breaks and continues.\n\nI hesitated between \"next\" and \"skip\". Would \"skip\" better help my case?",
       "parentUuid": "b988921e_e30fa3e0",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "234f4a97_b3b7b111",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-06T18:53:08Z",
+      "side": 1,
+      "message": "Well, I wrote this without reading the code itself but:\n\nFor the outer loop; the last continue isn\u0027t needed so it\u0027s a simple loop, and I believe a \"loop until we find an event\" comment can\u0027t hurt whether this is goto or loop anyway so this shouldn\u0027t make a different.\nThe whole looping itself can easily be avoided by refactoring to move actions last, e.g.\n\n if (!convert-\u003eupsert \u0026\u0026 !convert-\u003elink) {\n   free(convert-\u003efsentry);\n   convert-\u003efsentry \u003d convert_iter_next_entry(convert-\u003efsentries);\n }\n if (convert-\u003eupsert)\n   return ...\n if (convert-\u003elink)\n   return ...\n\nFor the inner loop, I blindly converted the goto to a loop, but it can be much easier\n\n  struct whatever_fsentry convert_iter_next_entry(whatever_iterator fsentries, bool *upsert, bool *link) {\n    struct fsentry *fsentry;\n    while (!*upsert \u0026\u0026 !*link) {\n      fsentry \u003d rbh_iter_next(fsentries);\n      *upsert \u003d ...;\n      *link \u003d ...;\n    }\n    return fsentry;\n  }\n (this made me pass \u0026convert-\u003eupsert, \u0026convert-\u003elink as argument to the new function too)\n\n\n... Should have said from the start writing reviews require turning brain on :p",
+      "parentUuid": "a0afb652_c78c7c97",
       "range": {
         "startLine": 126,
         "startChar": 0,
