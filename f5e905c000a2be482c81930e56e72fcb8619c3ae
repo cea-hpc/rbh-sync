@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8f69cd25_4228e7c9",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-06T18:25:32Z",
+      "side": 1,
+      "message": "I will eventually have to clarify this in the sources of the library...\n\nCreating any kind of entry in a filesystem is expected to yield 2 robinhood events: an RBH_FET_UPSERT and an RBH_FET_LINK. [*]\n\nRBH_FET_UPSERT can be thought to create the inode in the robinhood backend, and RBH_FET_LINK to link this inode in the namespace (give it a parent and a name).\n\n[*] The order in which the events are generated or applied does not matter.",
+      "parentUuid": "ad1250bc_b061db75",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c51c7dd0_adb8978e",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Both this convert and next look like straightforward while(1) loops with continue/breaks?\n\nwhile(1) {\n  if (convert-\u003eupsert) {\n    ...\n  }\n  ...\n  convert-\u003efsentry \u003d NULL;\n\n  while(1) {\n    free(fsentry);\n    ...\n    if (!(fsentry-\u003emask \u0026 RBH_FP_ID))\n      continue;\n    ...\n    if (convert-\u003eupsert || convert-\u003elink)\n      break;\n  }\n\n  convert-\u003efsentry \u003d fsentry;\n  continue;\n}",
       "parentUuid": "83245cb1_47158842",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0afb652_c78c7c97",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-06T18:25:32Z",
+      "side": 1,
+      "message": "But is it really better? Using gotos allows me to name the part of the code continues and breaks jump to.\n\nI just tried it, and I am not convinced. Without labels, I would need comments, and I would need them both around the \"while (1)\" and the breaks and continues.\n\nI hesitated between \"next\" and \"skip\". Would \"skip\" better help my case?",
+      "parentUuid": "b988921e_e30fa3e0",
       "range": {
         "startLine": 126,
         "startChar": 0,
