@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7502119e_802518bb",
+        "filename": "rbh-sync.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-12T11:45:12Z",
+      "side": 1,
+      "message": "(talking to myself) actually, convert-\u003eupsert can\u0027t be true here as if there was one it would immediately be consummed, and it can only be true below if convert-\u003elink was false here, so we could save to comparisons on each loop by moving things a bit\n\n... convert_iter_next(...) {\n  if (!convert-\u003elink) {\n    ... _convert_iter_next(convert)...\n    if (convert-\u003eupsert) {\n      ... upsert_new ...\n    }\n  }\n  if (convert-\u003elink) {\n    ... link_new ...\n  }\n}\n\nThat said I think it\u0027s much clearer as code is right now, even if the compiler has no way of possibly optimizing it as I did, the cost of malloc etc is much bigger than these two comparisons and we should keep the code as is... probably.. :P",
+      "revId": "9b5c95f653b9878c4ea0a8bf0354fb48fa62b815",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
