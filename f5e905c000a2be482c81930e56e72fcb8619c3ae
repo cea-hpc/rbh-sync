@@ -334,6 +334,30 @@
     },
     {
       "key": {
+        "uuid": "2b24f133_6237ee02",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-17T16:30:36Z",
+      "side": 1,
+      "message": "Do you mean the exit() is done by the library? Or the program is stopped because of a segfault of something?",
+      "parentUuid": "3bfecddf_c425aa18",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 41
+      },
+      "revId": "f5e905c000a2be482c81930e56e72fcb8619c3ae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8137e8a0_4249d626",
         "filename": "rbh-sync.c",
         "patchSetId": 3

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f9eb353_bcf12853",
+        "filename": "rbh-sync.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-17T16:30:36Z",
+      "side": 1,
+      "message": "any plan to add a comment here? like \"whether to link the inserted entry in the namespace\"",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 14
+      },
+      "revId": "3803640e7a97a6074881a869a9023664361050dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c0b9a2d_d29e57ed",
+        "filename": "rbh-sync.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2019-12-17T16:30:36Z",
+      "side": 1,
+      "message": "To link the entry in the namespace I would say you need the parent id + name.\nI don\u0027t see the point about \"symlink\". How is it related to linking the entry in the namespace?",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 48
+      },
+      "revId": "3803640e7a97a6074881a869a9023664361050dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
