@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3353123f_e52700d5",
+        "filename": "rbh-sync.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-18T09:09:00Z",
+      "side": 1,
+      "message": "Renamed from iter_mut_next() (which was not consistent with rbh_mut_iter_next()).",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 13
+      },
+      "revId": "a84b9ddca21ce40f9e0701a6a359f8aa453a6030",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea6493ff_07d8581d",
+        "filename": "rbh-sync.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-18T09:09:00Z",
+      "side": 1,
+      "message": "Also changed the error handling here. I am not sure it really is better, but it bothered me that I was testing \"chunk \u003d\u003d NULL\" twice.",
+      "revId": "a84b9ddca21ce40f9e0701a6a359f8aa453a6030",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
