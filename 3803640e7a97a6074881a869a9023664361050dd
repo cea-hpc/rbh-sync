@@ -93,6 +93,23 @@
       "revId": "3803640e7a97a6074881a869a9023664361050dd",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e32129fc_5f49f7ae",
+        "filename": "rbh-sync.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-18T09:00:02Z",
+      "side": 1,
+      "message": "Technically, we should free() the fsevents that were yielded by fsevents_tee[0] before returning here.",
+      "revId": "3803640e7a97a6074881a869a9023664361050dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
