@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f183d0fe_5aa49f74",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-27T21:48:59Z",
+      "side": 1,
+      "message": "\u003e Why redescribe URIs totally here while rbh-find readme referred to librobinhood\u0027s doc?\n\nThe two descriptions are sort of complementary: librobinhood\u0027s is (overly?) technical and developer oriented; rbh-sync\u0027s is more user oriented.\n\n---\n\n\u003e I\u0027d have understood the other way around somewhat (rbh-find users are a bit further from robinhood core than rbh-sync), or both or neither but not this.\n\nI had not seen it this way. I was thinking: \"if someone wants to use rbh-find, they first have to use rbh-sync, might as well explain it there\". But you have a point: regular users on our filesystems are unlikely to care about rbh-sync (and its documentation) but they could need/like rbh-find.\n\n---\n\n\u003e I\u0027d have understood the other way around somewhat (rbh-find users are a bit further from robinhood core than rbh-sync), or both or neither but not this.\n\nI think \"both\" is the right way to go. I think nobody likes to navigate from one documentation to another just to use one tool.",
+      "parentUuid": "f88a53f3_5880dee7",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "664ef0ae_5c25e9d3",
         "filename": "README.rst",
         "patchSetId": 1
@@ -30,6 +48,70 @@
       "writtenOn": "2019-12-27T15:18:39Z",
       "side": 1,
       "message": "What is a regular fsentry\u0027s ID, vfs handle ?\nWhy would that be more impractical than a lustre fid?",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03c1a6b2_034138d6",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-27T21:48:59Z",
+      "side": 1,
+      "message": "\u003e What is a regular fsentry\u0027s ID, vfs handle ?\n\nYes.\n\n\u003e Why would that be more impractical than a lustre fid?\n\nA lustre fid is ascii friendly (and more importantly shell friendly). VFS handles, not so much (null bytes are particularly problematic). Of course, one can percent-escape any special character (which is the point of the next paragraph). \u003d)",
+      "parentUuid": "664ef0ae_5c25e9d3",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96a70aae_a4700875",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-27T21:48:59Z",
+      "side": 1,
+      "message": "(typo) to remove",
+      "range": {
+        "startLine": 100,
+        "startChar": 57,
+        "endLine": 100,
+        "endChar": 73
+      },
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed40d8be_065d09a5",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-27T21:48:59Z",
+      "side": 1,
+      "message": "(defect) undefined reference",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 18
+      },
       "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
@@ -53,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "c94f3d6c_015fd60a",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-27T21:48:59Z",
+      "side": 1,
+      "message": "I read this [1] today. I do not agree with every point the article makes, but I am partial to the idea that parallel programming is not intrinsically hard, just hard for a C-like language.\n\n[1] https://queue.acm.org/detail.cfm?id\u003d3212479",
+      "parentUuid": "a722f5c3_2de49e7c",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9cd6f200_d9a09344",
         "filename": "README.rst",
         "patchSetId": 1
@@ -64,6 +164,24 @@
       "writtenOn": "2019-12-27T15:18:39Z",
       "side": 1,
       "message": "missing a wildcard or something for what you wanted to do, even if I insist it is impractical for us as our filesystem is heavily unbalanced. But this has been discussed already...",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05a5f48c_c0113ebe",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-27T21:48:59Z",
+      "side": 1,
+      "message": "Fixed the missing wildcard.\n\n\u003e it is impractical for us as our filesystem is heavily unbalanced.\n\nNot everyone needs to split the workload (only) at the level of the root directory. ;-)\n\n---\n\nI have been thinking about what a distributed/join-able scanner would look like and I still have some trouble finding a performant, yet simple, heuristic for the load distribution. I think task stealing is the better option, but which tasks to steal is rather hard to decide.\n\nI think a good enough solution would be to implement something like fpart [1] that would work with a robinhood backend. Of course, this assumes one already has a robinhood backend set up somewhere.\n\n[1] https://github.com/martymac/fpart",
+      "parentUuid": "9cd6f200_d9a09344",
       "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
