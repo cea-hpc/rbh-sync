@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f88a53f3_5880dee7",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-27T15:18:39Z",
+      "side": 1,
+      "message": "Why redescribe URIs totally here while rbh-find readme referred to librobinhood\u0027s doc?\n\nI\u0027d have understood the other way around somewhat (rbh-find users are a bit further from robinhood core than rbh-sync), or both or neither but not this.",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "664ef0ae_5c25e9d3",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-27T15:18:39Z",
+      "side": 1,
+      "message": "What is a regular fsentry\u0027s ID, vfs handle ?\nWhy would that be more impractical than a lustre fid?",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a722f5c3_2de49e7c",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-27T15:18:39Z",
+      "side": 1,
+      "message": "/me inserts sad pandas here.",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd6f200_d9a09344",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-27T15:18:39Z",
+      "side": 1,
+      "message": "missing a wildcard or something for what you wanted to do, even if I insist it is impractical for us as our filesystem is heavily unbalanced. But this has been discussed already...",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
