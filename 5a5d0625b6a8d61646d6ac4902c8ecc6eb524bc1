@@ -203,6 +203,24 @@
       "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2a4d517_466b562d",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2019-12-29T11:43:17Z",
+      "side": 1,
+      "message": "\u003e Not sure about that last remark, fpart isn\u0027t parallel at all?\n\nI meant to avoid the admin having to know how best to split the workload.\n\n---\n\n\u003e so steal from the bottom of the stack while the worker pops from the top of the stack\n\nYes, that much is clear. But how many tasks should you steal at a time? And from which worker exactly?",
+      "parentUuid": "f8bf580a_14c67da4",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
