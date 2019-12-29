@@ -185,6 +185,24 @@
       "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8bf580a_14c67da4",
+        "filename": "README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2019-12-29T08:41:16Z",
+      "side": 1,
+      "message": "Not sure about that last remark, fpart isn\u0027t parallel at all?\n\nI don\u0027t mind parallelism through multiple processes instead of multiple threads, using whatever mechanism (as simple as IPC or a redis/kafka/whatever), but I\u0027ll keep saying that it\u0027s not an admin\u0027s job to know where they should split the syncs to have optimal performances. Some work stealing mechanism would work for me: just start stealing from any bottom-most directory.\n(e.g. assuming a depth-first traversal, whatever is at the bottom of the stack will be directories we\u0027ve seen first at lowest level, so steal from the bottom of the stack while the worker pops from the top of the stack -- that\u0027d lead to the very same algorithm you advocate for here in a perfectly balanced case, but in case it\u0027s not balanced it\u0027ll keep stealing work as required)",
+      "parentUuid": "05a5f48c_c0113ebe",
+      "revId": "5a5d0625b6a8d61646d6ac4902c8ecc6eb524bc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
