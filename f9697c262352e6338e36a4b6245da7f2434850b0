@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8797c9b3_32bf40f2",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-01-08T18:30:31Z",
+      "side": 1,
+      "message": "getopt_long too simple for you? :P",
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9790e5ce_c5fd19c3",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-01-08T18:30:31Z",
+      "side": 1,
+      "message": "(had missed these before but erk boo boo bad; but I guess rbh-sync won\u0027t fork/thread much so you don\u0027t have to worry about many of atexit limitations...)",
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
