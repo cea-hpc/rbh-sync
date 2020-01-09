@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e75dcc39_a4d8c9ed",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-01-09T09:58:13Z",
+      "side": 1,
+      "message": "\u003e What are the expected arguments to synchronize entry /mnt/fs/a/b/c/d (given we manage everything under /mnt/fs)?\n\n rbh-sync rbh:posix:/mnt/fs#/a/b/c/d rbh:mongo:my_fs\n\n(note I used \"my_fs\" rather than \"/mnt/fs\" for the destination\u0027s \"fsname\". \"/mnt/fs\" would also work, but it isn\u0027t mandatory to use a valid path when the backend is \"mongo\")\n\n\u003e What happens if someones specifies any of the wrong options above as argument?\n\nDepends on what kind of wrong they are.\n\nFor example, right now, the \u0027/\u0027 before \"a\" is mandatory (I am realizing that this should probably change). If it is missing, rbh-sync will exit with a message that looks like: \"rbh-sync: rbh_backend_fsentry_from_path: invalid argument\" (could be better, but for now, it will have to do).\n\nIf someone adds a fragment after the destination uri, it won\u0027t have any effect. This is part of the things I wasn\u0027t so sure how to handle, so I chose the easy way out: \"don\u0027t know what to do when a branch backend is updated? Act like it isn\u0027t a branch!\".\n\nIf someone forgets to put a \u0027#\u0027 before \"/a/b/c/d\", rbh-sync will act as if \"/mnt/fs/a/b/c/d\" is the root of the backend. This means that:\n\n1. /a/b/c/d will have a NULL parent_id and an empty name ;\n2. If/when we implement a \"delete-if-not-seen\" option...\n\n#1 is not so easily solved, running \"rbh-sync --one rbh:posix:/mnt/fs#/a/b/c/d rbh:mongo:my_fs\" will repair the name of the entry, but not its parent_id (cf. https://review.gerrithub.io/c/cea-hpc/robinhood/+/479240). To repair the parent_id... Oww, *#?!... No, there is no way to repair that properly from the command line. [1] And that means that rbh-sync --one is fundamentally broken.\n\n#2 Let\u0027s put a pin on it and come back to it when we\u0027re there.\n\n[1] There _is_ a way to fix it from the command line: rbh-sync rbh:posix:/mnt/fs#/a/b/c rbh:mongo:my_fs, but it requires rescanning _a lot_ of entries to fix just one of them (daredevils will just interrupt the process after some seconds, but that is not something I want to encourage).\n\n---\n\nOK, here is the best fix I can think of: add a --parent option to be used with --one.\n\nThe --parent option will be mandatory to fully update a single fsentry. Using it will look like:\n\n rbh-sync --parent rbh:posix:/mnt/fs#/a/b/c --one rbh:posix:/mnt/fs#/a/b/c/d rbh:mongo:my_fs\n\nFailing to supply the --parent option will result in \"/a/b/c/d\"\u0027s linkage not to be updated.\n\nIt might seem like I should be able to parse the \"/a/b/c/d\" to extract \"/a/b/c\". And in fact, I could. But when one uses an ID instead of a path, it won\u0027t work. There is no sure-fire way to infer an entry\u0027s parent in general. [2]\nSo I could add that when the fragment is a path, infer the parent from it, otherwise, do nothing. But I\u0027d rather not. I would have to copy all of the code of robinhood/src/utils/uri.c in rbh-sync. Users can write a wrapper around rbh-sync to do just that (or we could, but I don\u0027t have a cool name for it... rbh-sync-infer-parent).\n\n[2] Lustre provides llapi_path2parent() and llapi_fd2parent() but this is pretty lustre specific.\n\n---\n\nBut why not just add a check that the source and destination root\u0027s IDs match?\n\nI could, probably should, and maybe will, but I need the time to. This simply does not feel like enough of a priority.",
+      "parentUuid": "51bb07cd_ca6ae3ff",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 64
+      },
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8797c9b3_32bf40f2",
         "filename": "rbh-sync.c",
         "patchSetId": 2
@@ -71,6 +95,30 @@
       "writtenOn": "2020-01-09T08:33:31Z",
       "side": 1,
       "message": "I could understand that rbh-find needed a custom argument parsing, but I don\u0027t see the benefits here.\n\nNot using getopt_long() may result in unusual behavior of argument parsing. This may confuse the user or even lead to unexpected executions.\n\nIt is also extra code to maintain, so it increases the maintenance cost of the software.\n\nWhy not using getopt_long()?",
+      "range": {
+        "startLine": 327,
+        "startChar": 8,
+        "endLine": 327,
+        "endChar": 46
+      },
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b4061d_9166e1d1",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-01-09T09:58:13Z",
+      "side": 1,
+      "message": "\u003e I could understand that rbh-find needed a custom argument parsing, but I don\u0027t see the benefits here.\n\nRight now, I don\u0027t think there is any. But if/when rbh-sync gains the ability to process fsevents from the command line (or kafka), I _think_ we will need a custom parser anyway. So I thought I might as well start writing it from the beginning.\n\nAlso, I really do not like getopt_long().",
+      "parentUuid": "70df332e_906c63cc",
       "range": {
         "startLine": 327,
         "startChar": 8,
