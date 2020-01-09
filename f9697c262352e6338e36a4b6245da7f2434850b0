@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "51bb07cd_ca6ae3ff",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2020-01-09T08:33:31Z",
+      "side": 1,
+      "message": "(question)What are the expected arguments to synchronize entry /mnt/fs/a/b/c/d (given we manage everything under /mnt/fs)?\n\n* SOURCE : posix:/mnt/fs/a/b/c/d, or posix:/mnt/fs#a/b/c/d, or somthg else?\n* DEST: mongo:/mnt/fs, or mongo:/mnt/fs/a/b/c/d, or mongo:/mnt/fs#a/b/c/d, or smthg else?\n\nWhat happens if someones specifies any of the wrong options above as argument?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 64
+      },
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8797c9b3_32bf40f2",
         "filename": "rbh-sync.c",
         "patchSetId": 2
@@ -31,6 +54,29 @@
       "side": 1,
       "message": "\u003dD\n\nThe command line as I envision it is going to need a custom parser at some point (I think), might as well start from the beginning. \u003d)",
       "parentUuid": "8797c9b3_32bf40f2",
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70df332e_906c63cc",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2020-01-09T08:33:31Z",
+      "side": 1,
+      "message": "I could understand that rbh-find needed a custom argument parsing, but I don\u0027t see the benefits here.\n\nNot using getopt_long() may result in unusual behavior of argument parsing. This may confuse the user or even lead to unexpected executions.\n\nIt is also extra code to maintain, so it increases the maintenance cost of the software.\n\nWhy not using getopt_long()?",
+      "range": {
+        "startLine": 327,
+        "startChar": 8,
+        "endLine": 327,
+        "endChar": 46
+      },
       "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
