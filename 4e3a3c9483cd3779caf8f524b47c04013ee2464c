@@ -22,6 +22,30 @@
       "revId": "4e3a3c9483cd3779caf8f524b47c04013ee2464c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa40c609_4c923b1a",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-01-09T00:25:40Z",
+      "side": 1,
+      "message": "It will be added with this patch: https://review.gerrithub.io/c/cea-hpc/robinhood/+/479243",
+      "parentUuid": "885d7d2c_ee350f6d",
+      "range": {
+        "startLine": 393,
+        "startChar": 15,
+        "endLine": 393,
+        "endChar": 31
+      },
+      "revId": "4e3a3c9483cd3779caf8f524b47c04013ee2464c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
