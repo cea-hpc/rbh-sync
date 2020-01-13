@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7662e88e_57c6aa2a",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-01-13T10:25:54Z",
+      "side": 1,
+      "message": "\u003e If this is not in your priorities you can add it to the development backlog\n\nDone\n\n\u003e This looks complex and error-prone. Simplification would be welcome.\n\nOK, let\u0027s try to propose something less error-prone:\n\nIf the --one option is provided on the command line and:\n\n- the source backend yields a parent ID for the entry (POSIX branches are the only problematic backends) \u003d\u003e OK\n- the source URI contains a fragment that is a path \u003d\u003e parse the path, get the parent, get its ID \u003d\u003e OK\n- the source URI contains a fragment that is a FID \u003d\u003e try using llapi_fd2parent() to infer the entry\u0027s parent ID \u003d\u003e Maybe OK (I think llapi_fd2parent requires CAP_DAC_READ_SEARCH, so it may fail for regular users)\n- the source URI contains a fragment that is not a FID (ie. it is just a regular ID) \u003d\u003e print a warning that the linkage will not be updated because the entry\u0027s parent cannot be (easily) inferred. Suggest using --parent to fix it \u003d\u003e Not OK, but user is warned.\n\n\u003e The fact that the URI is parsed in some part of the code rather than  another should not be user\u0027s problem, but yours\n\nOf course.\n\n\u003e Can\u0027t you add a call to the URI API to allow getting such information?\n\nYes, I can.",
+      "parentUuid": "097a3fc5_b594d733",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 64
+      },
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8797c9b3_32bf40f2",
         "filename": "rbh-sync.c",
         "patchSetId": 2
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "\u003e process fsevents from the command line (or kafka)\n\nWon\u0027t they be read from stdin? Do you plan to pass them on the command line?\n\n\u003e Also, I really do not like getopt_long().\n\nWhy is that?\nUnless there is a very good reason, I don\u0027t want to spend time reviewing functions that are already implemented in standard libraries and close to bug-free as they are so widely used...",
       "parentUuid": "e5b4061d_9166e1d1",
+      "range": {
+        "startLine": 327,
+        "startChar": 8,
+        "endLine": 327,
+        "endChar": 46
+      },
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd4556c4_9e99c9ee",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-01-13T10:25:54Z",
+      "side": 1,
+      "message": "\u003e Won\u0027t they be read from stdin?\n\nAt first, yes. But I expect I will need to use kafka\u0027s C api to get the best possible performance / reliability.\n\n\u003e Do you plan to pass them on the command line?\n\nI will surely need to pass some information to connect rbh-sync to kafka then, yes.\n\n\u003e \u003e Also, I really do not like getopt_long().\n\n\u003e Why is that?\n\nThat was uncalled for. getopt_long() is fine.\n\n---\n\nThe code is written and committed now. I will not make it a priority to switch to getopt_long().\nWhen I get to rework on these lines (to add support for reading from stdin for example), I will give getopt_long() a try.",
+      "parentUuid": "48de5fc1_4e8f3bba",
       "range": {
         "startLine": 327,
         "startChar": 8,
