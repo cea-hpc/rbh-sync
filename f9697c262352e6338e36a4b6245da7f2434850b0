@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "097a3fc5_b594d733",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2020-01-13T08:55:37Z",
+      "side": 1,
+      "message": "Checking if root id matches sounds like a good idea if this makes the command line more bullet proof. If this is not in your priorities you can add it to the development backlog.\n\n\n\u003e rbh-sync --parent rbh:posix:/mnt/fs#/a/b/c --one rbh:posix:/mnt/fs#/a/b/c/d rbh:mongo:my_fs\n\nThis looks complex and error-prone. Simplification would be welcome.\n\nThere should be a way to update an entry including its linkage in the namespace (especially in case there is a defect in changelogs that may \"loose\" some create/unlink/rename records). If/when robinhood can infer entries parent, it should do it without making it painful or complex, otherwise the risk is to break robinhood even more by specifying a wrong argument for --parent.\nThe fact that the URI is parsed in some part of the code rather than  another should not be user\u0027s problem, but yours :-) Can\u0027t you add a call to the URI API to allow getting such information?",
+      "parentUuid": "e75dcc39_a4d8c9ed",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 64
+      },
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8797c9b3_32bf40f2",
         "filename": "rbh-sync.c",
         "patchSetId": 2
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "\u003e I could understand that rbh-find needed a custom argument parsing, but I don\u0027t see the benefits here.\n\nRight now, I don\u0027t think there is any. But if/when rbh-sync gains the ability to process fsevents from the command line (or kafka), I _think_ we will need a custom parser anyway. So I thought I might as well start writing it from the beginning.\n\nAlso, I really do not like getopt_long().",
       "parentUuid": "70df332e_906c63cc",
+      "range": {
+        "startLine": 327,
+        "startChar": 8,
+        "endLine": 327,
+        "endChar": 46
+      },
+      "revId": "f9697c262352e6338e36a4b6245da7f2434850b0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48de5fc1_4e8f3bba",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2020-01-13T08:55:37Z",
+      "side": 1,
+      "message": "\u003e process fsevents from the command line (or kafka)\n\nWon\u0027t they be read from stdin? Do you plan to pass them on the command line?\n\n\u003e Also, I really do not like getopt_long().\n\nWhy is that?\nUnless there is a very good reason, I don\u0027t want to spend time reviewing functions that are already implemented in standard libraries and close to bug-free as they are so widely used...",
+      "parentUuid": "e5b4061d_9166e1d1",
       "range": {
         "startLine": 327,
         "startChar": 8,
