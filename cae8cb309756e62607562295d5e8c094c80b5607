@@ -33,6 +33,24 @@
       "message": "that used to go to stderr, I\u0027d tend to agree it\u0027s more standard there.",
       "revId": "cae8cb309756e62607562295d5e8c094c80b5607",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f9735da_8e23b74b",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T20:56:35Z",
+      "side": 1,
+      "message": "It used to be called on errors. Now getopt handles error messages and this is only used with \"-h / --help\".",
+      "parentUuid": "880d8971_6a050a6d",
+      "revId": "cae8cb309756e62607562295d5e8c094c80b5607",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
