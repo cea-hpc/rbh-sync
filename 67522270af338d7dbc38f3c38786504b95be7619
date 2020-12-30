@@ -16,6 +16,24 @@
       "message": "(nitpick) looks unrelated? or at least worth a comment in commit message",
       "revId": "67522270af338d7dbc38f3c38786504b95be7619",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2cb6bd7_a5e1e14f",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T21:16:45Z",
+      "side": 0,
+      "message": "gcc complains about an implicit fallthrough at rbh_sync.c:l.317 with this warning level.\n\nThere is code in bits/error.h to handle this transparently:\n\n /* If we know the function will never return make sure the compiler\n    realizes that, too.  */\n __extern_always_inline void\n error (int __status, int __errnum, const char *__format, ...)\n {\n   if (__builtin_constant_p (__status) \u0026\u0026 __status !\u003d 0)\n     __error_noreturn (__status, __errnum, __format, __va_arg_pack ());\n   else\n     __error_alias (__status, __errnum, __format, __va_arg_pack ());\n }\n\nBut it is not used (at least) on my machine for some compatibility reason, from error.h:\n\n #if defined __LDBL_COMPAT || __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI \u003d\u003d 1\n # include \u003cbits/error-ldbl.h\u003e\n #else\n /* Do not inline error and error_at_line when long double has the same\n    size of double, nor when long double reuses the float128\n    implementation, because that would invalidate the redirections to the\n    compatibility functions.  */\n # if defined __extern_always_inline \u0026\u0026 defined __va_arg_pack\n #  include \u003cbits/error.h\u003e\n # endif\n #endif\n\nI could add a __builtin_unreachable(), but the next patch uses the `type var \u003d {}` declaration, which also raises a warning at `warning_level\u003d3`.",
+      "parentUuid": "16190333_c36f1b96",
+      "revId": "67522270af338d7dbc38f3c38786504b95be7619",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
