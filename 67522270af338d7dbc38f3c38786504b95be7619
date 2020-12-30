@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16190333_c36f1b96",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-30T10:06:46Z",
+      "side": 0,
+      "message": "(nitpick) looks unrelated? or at least worth a comment in commit message",
+      "revId": "67522270af338d7dbc38f3c38786504b95be7619",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
