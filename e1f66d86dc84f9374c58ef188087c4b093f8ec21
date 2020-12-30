@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77c33142_5b604cf4",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T22:15:26Z",
+      "side": 1,
+      "message": "I tried switching to an immutable iterator and got stuck because it was too hard not to allocate a new fsevent every time.\n\nBut I could include the call to rbh_iter_constify() into iter_convert() and keep the underlying iterator mutable. (will do)",
+      "parentUuid": "1d8b9f4b_5af53cd6",
+      "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3934ea77_85ffa027",
         "filename": "rbh-sync.c",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2020-12-30T21:12:00Z",
       "side": 1,
       "message": "since chunks is mutable operator what frees the previous chunk?\n(I checked chunkfiy_iter_next mallocs a new chunk, but doesn\u0027t free the previous one; and it didn\u0027t get constified for automatic freeing; and it doesn\u0027t look like rbh_backend_update does either)",
+      "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1842165_9fa70580",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T22:15:26Z",
+      "side": 1,
+      "message": "\u003e since chunks is mutable operator what frees the previous chunk?\n\nThe next patch set?... 😐\nIt used to be done by upsert_fsentries(), but rbh_iter_constify() (and me finally acknowledging that pointers yielded by immutable iterators are only valid until the next call to rbh_iter_next()) made it redundant.\n\nI also see a potential memory leak in rbh_mut_iter_constify(): `chunk-\u003efirst` may never be freed... But should it, to begin with? After all, mutable !\u003d free-able. I think I will just remove rbh_mut_iter_chunkify().\n\nThis begs the question: how well is rbh-sync tested? How well are mutable iterators tested? And how well do we test for half-exhausted iterators?\n\nProbably \"not well enough\", on all accounts.",
+      "parentUuid": "3934ea77_85ffa027",
       "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
