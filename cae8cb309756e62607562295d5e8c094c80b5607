@@ -51,6 +51,24 @@
       "parentUuid": "880d8971_6a050a6d",
       "revId": "cae8cb309756e62607562295d5e8c094c80b5607",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04634978_ce2f924d",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-30T20:59:14Z",
+      "side": 1,
+      "message": "Ok makes sense.",
+      "parentUuid": "5f9735da_8e23b74b",
+      "revId": "cae8cb309756e62607562295d5e8c094c80b5607",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
