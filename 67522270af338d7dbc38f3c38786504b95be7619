@@ -52,6 +52,24 @@
       "parentUuid": "c2cb6bd7_a5e1e14f",
       "revId": "67522270af338d7dbc38f3c38786504b95be7619",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c2721b8_e51e1d07",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T21:36:42Z",
+      "side": 0,
+      "message": "Added a `__builtin_unreachable()` where it was needed, left the warning_level at 3 in this patch, lowered it to 2 in the next patch and added an explanation in the corresponding commit\u0027s message.",
+      "parentUuid": "57affb62_783aa718",
+      "revId": "67522270af338d7dbc38f3c38786504b95be7619",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
