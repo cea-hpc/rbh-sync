@@ -16,6 +16,24 @@
       "message": "(just to make sure: rbh_mut_iter_array doesn\u0027t free element when the iterator is destroyed, but the new one does? would it make sense to have a freeing mut iterator?)",
       "revId": "cae8cb309756e62607562295d5e8c094c80b5607",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "368382cc_b9548ef0",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T23:17:02Z",
+      "side": 0,
+      "message": "\u003e rbh_mut_iter_array doesn\u0027t free element when the iterator is destroyed\n\nNo, it doesn\u0027t\n\n\u003e but the new one does?\n\nYes, only if the element was never yielded.\n\n\u003e would it make sense to have a freeing mut iterator?\n\nIn the general case? Maybe, but I am not sure. Only iterators whose elements are already pre-allocated should care about this. For \"generators\" it would not be very useful.\n\nBut rbh_mut_iter_array() is not a generator, so would it make sense to have a freeing version of it? Probably not. The \"one element array\" is a special case. For bigger arrays, you would need to already have an array filled with pointers that need freeing, I don\u0027t think many public APIs fill arrays this way [*], and if it\u0027s an internal, you can probably use an iterator from the get go rather than an array.\n\n[*] the wordexp_t structure and its `we_wordv` member comes to mind (from `man 3 wordexp`), but the elements in the array are not directly free-able, and one should use wordfree() instead.",
+      "parentUuid": "82682869_033ecad9",
+      "revId": "cae8cb309756e62607562295d5e8c094c80b5607",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
