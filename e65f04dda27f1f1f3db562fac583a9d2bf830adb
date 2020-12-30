@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aff45aab_d83cbd0d",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T22:52:15Z",
+      "side": 1,
+      "message": "(minor) Extra newline, not needed",
+      "range": {
+        "startLine": 317,
+        "startChar": 51,
+        "endLine": 317,
+        "endChar": 53
+      },
+      "revId": "e65f04dda27f1f1f3db562fac583a9d2bf830adb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
