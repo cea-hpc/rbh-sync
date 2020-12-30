@@ -34,6 +34,24 @@
       "parentUuid": "16190333_c36f1b96",
       "revId": "67522270af338d7dbc38f3c38786504b95be7619",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57affb62_783aa718",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-30T21:23:18Z",
+      "side": 0,
+      "message": "You were right to point it out though, the default is warning_level\u003d1 on my machine, but warning_level\u003d2 also works.",
+      "parentUuid": "c2cb6bd7_a5e1e14f",
+      "revId": "67522270af338d7dbc38f3c38786504b95be7619",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
