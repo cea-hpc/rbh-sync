@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82682869_033ecad9",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-30T21:01:06Z",
+      "side": 0,
+      "message": "(just to make sure: rbh_mut_iter_array doesn\u0027t free element when the iterator is destroyed, but the new one does? would it make sense to have a freeing mut iterator?)",
+      "revId": "cae8cb309756e62607562295d5e8c094c80b5607",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
