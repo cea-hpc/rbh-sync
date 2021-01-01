@@ -36,6 +36,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ca502ca_15dad01e",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-01-01T06:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "77c33142_5b604cf4",
+      "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3934ea77_85ffa027",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "\u003e since chunks is mutable operator what frees the previous chunk?\n\nThe next patch set?... 😐\nIt used to be done by upsert_fsentries(), but rbh_iter_constify() (and me finally acknowledging that pointers yielded by immutable iterators are only valid until the next call to rbh_iter_next()) made it redundant.\n\nI also see a potential memory leak in rbh_mut_iter_constify(): `chunk-\u003efirst` may never be freed... But should it, to begin with? After all, mutable !\u003d free-able. I think I will just remove rbh_mut_iter_chunkify().\n\nThis begs the question: how well is rbh-sync tested? How well are mutable iterators tested? And how well do we test for half-exhausted iterators?\n\nProbably \"not well enough\", on all accounts.",
       "parentUuid": "3934ea77_85ffa027",
+      "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ae1539_faa82a44",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-01-01T06:38:09Z",
+      "side": 1,
+      "message": "\u003e The next patch set?... 😐\n\n:D ok!\n\n\u003e tests etc\n\nIterator unit tests are probably good enough, and I wouldn\u0027t care much about half-exhausted iterators here (the only case I could think of here is if some unrecoverable error occurs, at which point we\u0027ll exit anyway and that\u0027ll clean things up well enough for all intent and purposes -- one-time leak checks on error paths aren\u0027t worth the time spent in my opinion)\n\nOverall rbh-sync tests (e.g. making sure there is no leak every x entries that might exhaust client ram on large fs) otoh would make sense, running rbh-sync with a large enough fs (at least 10x chunk size entries?) and making sure no leak appear more than a few times in CI (or your manual test pass at the end of a patchset) might be good if it\u0027s not too much work.\n\nThanks!",
+      "parentUuid": "e1842165_9fa70580",
       "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
