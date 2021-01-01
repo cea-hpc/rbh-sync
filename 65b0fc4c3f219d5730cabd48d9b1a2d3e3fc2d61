@@ -16,6 +16,24 @@
       "message": "note: +1 lost on trivial rebase, probably want to fix repo configuration.",
       "revId": "65b0fc4c3f219d5730cabd48d9b1a2d3e3fc2d61",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d8aefc_fda48163",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2021-01-01T09:25:27Z",
+      "side": 1,
+      "message": "The repo looks properly configured: https://review.gerrithub.io/plugins/gitiles/cea-hpc/rbh-sync/+/refs/meta/config/project.config\n\nline 18 and 24:\n\n\u003e copyAllScoresOnTrivialRebase \u003d True\n\nThere seems to be an open issue about this on gerrit\u0027s bug tracker: https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d12783, that might be it.",
+      "parentUuid": "af73a237_6ff3d797",
+      "revId": "65b0fc4c3f219d5730cabd48d9b1a2d3e3fc2d61",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
