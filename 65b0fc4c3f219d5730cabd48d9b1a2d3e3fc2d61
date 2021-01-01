@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af73a237_6ff3d797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-01-01T06:42:11Z",
+      "side": 1,
+      "message": "note: +1 lost on trivial rebase, probably want to fix repo configuration.",
+      "revId": "65b0fc4c3f219d5730cabd48d9b1a2d3e3fc2d61",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
