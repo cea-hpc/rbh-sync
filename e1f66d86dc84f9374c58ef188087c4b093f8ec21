@@ -105,6 +105,24 @@
       "parentUuid": "e1842165_9fa70580",
       "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ac52fc_f73e7d6b",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2021-01-01T08:14:48Z",
+      "side": 1,
+      "message": "\u003e \u003e since chunks is mutable operator what frees the previous chunk?\n\n\u003e The next patch set?... 😐\n\nDone\n\n\u003e I think I will just remove rbh_mut_iter_chunkify().\n\nhttps://review.gerrithub.io/c/cea-hpc/librobinhood/+/508349",
+      "parentUuid": "e1842165_9fa70580",
+      "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
