@@ -123,6 +123,24 @@
       "parentUuid": "e1842165_9fa70580",
       "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf787ef4_38937d91",
+        "filename": "rbh-sync.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2021-01-03T00:13:33Z",
+      "side": 1,
+      "message": "My bad, I missed your answer about tests, duly noted. Thanks!",
+      "parentUuid": "a7ac52fc_f73e7d6b",
+      "revId": "e1f66d86dc84f9374c58ef188087c4b093f8ec21",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
