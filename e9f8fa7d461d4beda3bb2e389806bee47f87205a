@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e5f9ac_1c83ac03",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-04T12:01:27Z",
+      "side": 1,
+      "message": "(nitpick) space after #",
+      "revId": "e9f8fa7d461d4beda3bb2e389806bee47f87205a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
