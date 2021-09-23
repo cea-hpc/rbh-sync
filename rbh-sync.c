@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <error.h>
 #include <getopt.h>
+#include <robinhood/fsentry.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -363,7 +364,7 @@ static int
 usage(void)
 {
     const char *message =
-        "usage: %s [--one] SOURCE DEST\n"
+        "usage: %s [-ho] [-ei FIELD] SOURCE DEST\n"
         "\n"
         "Upsert SOURCE's entries into DEST\n"
         "\n"
@@ -372,19 +373,342 @@ usage(void)
         "    DEST    a robinhood URI\n"
         "\n"
         "Optional arguments:\n"
-        "    -h,--help  show this message and exit\n"
-        "    -o,--one   only consider the root of SOURCE\n"
+        "    -h,--help           show this message and exit\n"
+        "    -e,--exclude FIELD  exclude FIELD from the synchronization\n"
+        "                        (can be specified multiple times)\n"
+        "    -i,--include FIELD  include FIELD in the synchronization\n"
+        "                        (can be specified multiple times)\n"
+        "    -o,--one            only consider the root of SOURCE\n"
         "\n"
         "A robinhood URI is built as follows:\n"
         "    "RBH_SCHEME":BACKEND:FSNAME[#{PATH|ID}]\n"
-        "Where:\n"
+        "\n"
+        "  Where:\n"
         "    BACKEND  is the name of a backend\n"
         "    FSNAME   is the name of a filesystem for BACKEND\n"
         "    PATH/ID  is the path/id of an fsentry managed by BACKEND:FSNAME\n"
         "             (ID must be enclosed in square brackets '[ID]' to distinguish it\n"
-        "             from a path)\n";
+        "             from a path)\n"
+        "\n"
+        "FIELD can be any of the following:\n"
+        "    [x] id          [x] parent-id   [x] name        [x] statx\n"
+        "    [x] symlink     [x] ns-xattrs   [x] xattrs\n"
+        "\n"
+        "  Where 'statx' also supports the following subfields:\n"
+        "    [x] blksize     [x] attributes  [x] nlink       [x] uid\n"
+        "    [x] gid         [x] type        [x] mode        [x] ino\n"
+        "    [x] size        [x] btime.nsec  [x] btime.sec   [x] ctime.nsec\n"
+        "    [x] ctime.sec   [x] mtime.nsec  [x] mtime.sec   [x] rdev.major\n"
+        "    [x] rdev.minor  [x] dev.major   [x] dev.minor   [ ] mount-id\n"
+        "\n"
+        "  [x] indicates the field is included by default\n"
+        "  [ ] indicates the field is excluded by default\n";
 
     return printf(message, program_invocation_short_name);
+}
+
+static uint32_t
+str2statx_field(const char *string_)
+{
+    const char *string = string_;
+
+    switch (*string++) {
+    case 'a': /* atime.nsec, atime.sec, attributes */
+        if (*string++ != 't')
+            break;
+
+        switch (*string++) {
+        case 'i': /* atime.nsec, atime.sec */
+            if (strncmp(string, "me.", 3))
+                break;
+            string += 3;
+
+            switch (*string++) {
+            case 'n':
+                if (strcmp(string, "sec"))
+                    break;
+                return RBH_STATX_ATIME_NSEC;
+            case 's':
+                if (strcmp(string, "ec"))
+                    break;
+                return RBH_STATX_ATIME_SEC;
+            }
+            break;
+        case 't': /* attributes */
+            if (strcmp(string, "tributes"))
+                break;
+            return RBH_STATX_ATTRIBUTES;
+        }
+        break;
+    case 'b': /* blksize, blocks, btime.nsec, btime.sec */
+        switch (*string++) {
+        case 'l': /* blksize, blocks */
+            switch (*string++) {
+            case 'k': /* blksize */
+                if (strcmp(string, "size"))
+                    break;
+                return RBH_STATX_BLKSIZE;
+            case 'o': /* blocks */
+                if (strcmp(string, "cks"))
+                    break;
+                return RBH_STATX_BLOCKS;
+            }
+            break;
+        case 't': /* btime.nsec, btime.sec */
+            if (strncmp(string, "ime.", 4))
+                break;
+            string += 4;
+
+            switch (*string++) {
+            case 'n':
+                if (strcmp(string, "sec"))
+                    break;
+                return RBH_STATX_BTIME_NSEC;
+            case 's':
+                if (strcmp(string, "ec"))
+                    break;
+                return RBH_STATX_BTIME_SEC;
+            }
+            break;
+        }
+        break;
+    case 'c': /* ctime.nsec, ctime.sec */
+        if (strncmp(string, "time.", 5))
+            break;
+        string += 5;
+
+        switch (*string++) {
+        case 'n':
+            if (strcmp(string, "sec"))
+                break;
+            return RBH_STATX_CTIME_NSEC;
+        case 's':
+            if (strcmp(string, "ec"))
+                break;
+            return RBH_STATX_CTIME_SEC;
+        }
+        break;
+    case 'd': /* dev.major, dev.minor */
+        if (strncmp(string, "ev.m", 4))
+            break;
+        string += 4;
+
+        switch (*string++) {
+        case 'a':
+            if (strcmp(string, "jor"))
+                break;
+            return RBH_STATX_DEV_MAJOR;
+        case 'i':
+            if (strcmp(string, "nor"))
+                break;
+            return RBH_STATX_DEV_MINOR;
+        }
+        break;
+    case 'g': /* gid */
+        if (strcmp(string, "id"))
+            break;
+        return RBH_STATX_GID;
+    case 'i': /* ino */
+        if (strcmp(string, "no"))
+            break;
+        return RBH_STATX_INO;
+    case 'm': /* mode, mtime.nsec, mtime.sec */
+        switch (*string++) {
+        case 'o': /* mode */
+            if (strcmp(string, "de"))
+                break;
+            return RBH_STATX_MODE;
+        case 't': /* mtime.nsec, mtime.sec */
+            if (strncmp(string, "ime.", 4))
+                break;
+            string += 4;
+
+            switch (*string++) {
+            case 'n':
+                if (strcmp(string, "sec"))
+                    break;
+                return RBH_STATX_MTIME_NSEC;
+            case 's':
+                if (strcmp(string, "ec"))
+                    break;
+                return RBH_STATX_MTIME_SEC;
+            }
+            break;
+        }
+        break;
+    case 'n': /* nlink */
+        if (strcmp(string, "link"))
+            break;
+        return RBH_STATX_NLINK;
+    case 'r': /* rdev.major, rdev.minor */
+        if (strncmp(string, "dev.m", 5))
+            break;
+        string += 5;
+
+        switch (*string++) {
+        case 'a':
+            if (strcmp(string, "jor"))
+                break;
+            return RBH_STATX_DEV_MAJOR;
+        case 'i':
+            if (strcmp(string, "nor"))
+                break;
+            return RBH_STATX_DEV_MINOR;
+        }
+        break;
+    case 's': /* size */
+        if (strcmp(string, "ize"))
+            break;
+        return RBH_STATX_SIZE;
+    case 't': /* type */
+        if (strcmp(string, "ype"))
+            break;
+        return RBH_STATX_TYPE;
+    case 'u': /* uid */
+        if (strcmp(string, "id"))
+            break;
+        return RBH_STATX_UID;
+    }
+
+    error(EX_USAGE, 0, "unknown statx field: %s", string_);
+    __builtin_unreachable();
+}
+
+static const struct rbh_filter_field *
+str2field(const char *string_)
+{
+    static struct rbh_filter_field field;
+    const char *string = string_;
+
+    switch (*string++) {
+    case 'i': /* id */
+        if (strcmp(string, "d"))
+            break;
+        field.fsentry = RBH_FP_ID;
+        return &field;
+    case 'n': /* name, ns-xattrs */
+        switch (*string++) {
+        case 'a': /* name */
+            if (strcmp(string, "me"))
+                break;
+            field.fsentry = RBH_FP_NAME;
+            return &field;
+        case 's': /* ns-xattrs */
+            if (strncmp(string, "-attrs", 6))
+                break;
+            field.fsentry = RBH_FP_NAMESPACE_XATTRS;
+            string += 6;
+
+            switch (*string++) {
+            case '\0':
+                field.xattr = NULL;
+                return &field;
+            case '.':
+                field.xattr = string;
+                return &field;
+            }
+            break;
+        }
+        break;
+    case 'p': /* parent-id */
+        if (strcmp(string, "arent-id"))
+            break;
+        field.fsentry = RBH_FP_PARENT_ID;
+        return &field;
+    case 's': /* statx, symlink */
+        switch (*string++) {
+        case 't':
+            if (strncmp(string, "atx", 3))
+                break;
+            string += 3;
+
+            field.fsentry = RBH_FP_STATX;
+            switch (*string++) {
+            case '\0':
+                field.statx = RBH_STATX_ALL;
+                return &field;
+            case '.':
+                field.statx = str2statx_field(string);
+                return &field;
+            }
+            break;
+        case 'y':
+            if (strcmp(string, "mlink"))
+                break;
+            field.fsentry = RBH_FP_SYMLINK;
+            return &field;
+        }
+        break;
+    case 'x': /* xattrs */
+        if (strncmp(string, "attrs", 5))
+            break;
+        string += 5;
+
+        field.fsentry = RBH_FP_INODE_XATTRS;
+        switch (*string++) {
+        case '\0':
+            field.xattr = NULL;
+            return &field;
+        case '.':
+            field.xattr = string;
+            return &field;
+        }
+        break;
+    }
+
+    error(EX_USAGE, 0, "unknown field: %s", string_);
+    __builtin_unreachable();
+}
+
+static struct rbh_filter_projection projection = {
+    .fsentry_mask = RBH_FP_ALL,
+    .statx_mask = RBH_FP_ALL & ~RBH_STATX_MNT_ID,
+};
+
+static void
+projection_add(const struct rbh_filter_field *field)
+{
+    projection.fsentry_mask |= field->fsentry;
+
+    switch (field->fsentry) {
+    case RBH_FP_ID:
+    case RBH_FP_PARENT_ID:
+    case RBH_FP_NAME:
+        break;
+    case RBH_FP_STATX:
+        projection.statx_mask |= field->statx;
+        break;
+    case RBH_FP_SYMLINK:
+    case RBH_FP_NAMESPACE_XATTRS:
+        // TODO: handle subfields
+        break;
+    case RBH_FP_INODE_XATTRS:
+        // TODO: handle subfields
+        break;
+    }
+}
+
+static void
+projection_remove(const struct rbh_filter_field *field)
+{
+    projection.fsentry_mask &= ~field->fsentry;
+
+    switch (field->fsentry) {
+    case RBH_FP_ID:
+    case RBH_FP_PARENT_ID:
+    case RBH_FP_NAME:
+        break;
+    case RBH_FP_STATX:
+        projection.statx_mask &= ~field->statx;
+        break;
+    case RBH_FP_SYMLINK:
+    case RBH_FP_NAMESPACE_XATTRS:
+        // TODO: handle subfields
+        break;
+    case RBH_FP_INODE_XATTRS:
+        // TODO: handle subfields
+        break;
+    }
 }
 
 int
@@ -392,8 +716,18 @@ main(int argc, char *argv[])
 {
     const struct option LONG_OPTIONS[] = {
         {
+            .name = "exclude",
+            .has_arg = required_argument,
+            .val = 'e',
+        },
+        {
             .name = "help",
             .val = 'h',
+        },
+        {
+            .name = "include",
+            .has_arg = required_argument,
+            .val = 'i',
         },
         {
             .name = "one",
@@ -404,11 +738,17 @@ main(int argc, char *argv[])
     char c;
 
     /* Parse the command line */
-    while ((c = getopt_long(argc, argv, "ho", LONG_OPTIONS, NULL)) != -1) {
+    while ((c = getopt_long(argc, argv, "e:hi:o", LONG_OPTIONS, NULL)) != -1) {
         switch (c) {
+        case 'e':
+            projection_remove(str2field(optarg));
+            break;
         case 'h':
             usage();
             return 0;
+        case 'i':
+            projection_add(str2field(optarg));
+            break;
         case 'o':
             one = true;
             break;
