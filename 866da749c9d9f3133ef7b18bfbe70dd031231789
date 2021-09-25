@@ -16,6 +16,142 @@
       "message": "Hadn\u0027t tested the patch when I pushed it two days ago, there were a couple bugs...\nNow it should be alright.",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b509344_330cead6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "looks good overall, a few remarks.. I still think it\u0027s a pain, but it\u0027s done - thanks!\n(oh, and trusting you on tests :D)",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d15b1268_9fd3e4bd",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "As you\u0027re copying things one for one here, I\u0027d be lazy and just memcpy the whole statx struct then set only mask.\nThis might actually set more fields than requested, but mask is set correctly so \"overset\" fields won\u0027t be accessed, and speed-wise it is definitely going to be faster than checking so many bits (hard to benchmark as you\u0027re filling the branch prediction cache here, so a small benchmark might not show that much of a difference as a larger program.. can\u0027t find the article I had in mind for this)",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485b74cc_dafe2eb8",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "(idle comment) bit of a shame symlink and xattrs are embedded in the struct and we can\u0027t just pass a pointer along as the lifetime of the two fsentries are the same...\n\nsilly question: couldn\u0027t we modify the source fsentry in place? as far as I can see the lifetimes are really the same.",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f8940ed_562fa080",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "note on option name: for a tool called smth-sync, --include/exclude are connoted by e.g. don\u0027t scan this part of the tree for me. (à la rsync)\nIt might be worth making the option more specific?",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "705b9f1e_82571d4e",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "(nitpick) not sure it\u0027s clear that you can pass statx for all fields as well as statx.xyz, I only understood that reading code. Not sure how to make it clearer though, the \u0027also suppors\u0027 is correct..",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9a0572_281bb870",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "(nitpick) ctime shorthand that\u0027s retrn RBH_STATX_CTIME?",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f93b6ec_f12dc859",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "ns-xattrs, ns-attrs",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d70423e_1aae623c",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:52:52Z",
+      "side": 1,
+      "message": "hm, should the first include passed clear the map?\nkind of would expect rbh-sync --include xyz to only sync xyz.",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
