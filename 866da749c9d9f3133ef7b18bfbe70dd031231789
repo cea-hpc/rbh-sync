@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61a87adc_7ff37e38",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:38:05Z",
+      "side": 1,
+      "message": "I am wondering how well-defined the copy of partially initialized fields is...\n\nFor example:\n\n    struct statx source;\n    struct statx dest;\n\n    source-\u003estx_mask \u003d 0;\n    memcpy(dest, source, sizeof(dest)); /* \u003c-- is this valid? */\n\nThe part about filling up the branch prediction cache makes sense to me. If I can get away with a memcpy + \u0026\u003d, I\u0027ll take it.",
+      "parentUuid": "d15b1268_9fd3e4bd",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "485b74cc_dafe2eb8",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2021-09-25T21:52:52Z",
       "side": 1,
       "message": "(idle comment) bit of a shame symlink and xattrs are embedded in the struct and we can\u0027t just pass a pointer along as the lifetime of the two fsentries are the same...\n\nsilly question: couldn\u0027t we modify the source fsentry in place? as far as I can see the lifetimes are really the same.",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4008cb11_3879f6a5",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:38:05Z",
+      "side": 1,
+      "message": "\u003e couldn\u0027t we modify the source fsentry in place?\n\nWe technically can\u0027t:\n\n    struct rbh_fsentry {\n        (...)\n        const struct statx *statx;\n        (...)\n    };\n\nWhile the field is allocated on the heap with the mongo backend, there is no guarantee it always is the case (though you would be hard pressed to yield dynamically allocated fsentries with references to statically allocated memory, but eh).\n\n\u003e bit of a shame symlink and xattrs are embedded in the struct and we can\u0027t just pass a pointer along as the lifetime of the two fsentries are the same...\n\nYep, struct rbh_fsevent might be a better fit than struct rbh_fsentry for this sort of things. I just wanted to take the simplest approach for now.",
+      "parentUuid": "485b74cc_dafe2eb8",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19a4a25a_4a37f83e",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:38:05Z",
+      "side": 1,
+      "message": "Fair enough, what do you have in mind?\n\nWe could go with `--project [+-]FIELD`. I don\u0027t like the extra parsing it incurs though. Any alternative is welcome.",
+      "parentUuid": "9f8940ed_562fa080",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "705b9f1e_82571d4e",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -99,6 +153,24 @@
       "writtenOn": "2021-09-25T21:52:52Z",
       "side": 1,
       "message": "(nitpick) not sure it\u0027s clear that you can pass statx for all fields as well as statx.xyz, I only understood that reading code. Not sure how to make it clearer though, the \u0027also suppors\u0027 is correct..",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3e22cdb_52c592bd",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:38:05Z",
+      "side": 1,
+      "message": "Bah, worst case scenario, some people end up writing:\n\n  --exclude statx.blksize --exclude statx.attributes --exclude statx.nlink ...\n\nIf they ever open an issue about it, we can ask them how they would rephrase the help message to make it clearer.\n\nAlso, I should update the docs at some point. Could include some examples there to disambiguate. In my backlog.",
+      "parentUuid": "705b9f1e_82571d4e",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -122,6 +194,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7152871c_331d303c",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:38:05Z",
+      "side": 1,
+      "message": "In my backlog",
+      "parentUuid": "6a9a0572_281bb870",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f93b6ec_f12dc859",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -139,6 +229,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b91569d_00f15ccf",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:38:05Z",
+      "side": 1,
+      "message": "(done)\n\nAlso realizing that I left code in there to project an xattr\u0027s subfield... Which isn\u0027t actually supported. 😕\n\nI\u0027m going to leave it there \"as a bug\". Putting an entry in my backlog to fix this xattr mess. I did not plan on spending so much time on it, just to eventually put it off as an \"exercise for the future\"... It\u0027s really annoying. 😕",
+      "parentUuid": "7f93b6ec_f12dc859",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d70423e_1aae623c",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -150,6 +258,24 @@
       "writtenOn": "2021-09-25T21:52:52Z",
       "side": 1,
       "message": "hm, should the first include passed clear the map?\nkind of would expect rbh-sync --include xyz to only sync xyz.",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6baefa04_464a7528",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:38:05Z",
+      "side": 1,
+      "message": "If the default was to include (actually) \"everything\", I think I would be up for it.\n\nWould it be OK to add an `--only FIELD` option that _sets_ the mask to `FIELD`? (either this, the `--project` option, having the default be _everything_, or something else if you have suggestions)",
+      "parentUuid": "1d70423e_1aae623c",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
