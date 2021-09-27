@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "607b9b40_f38aaaeb",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-27T21:40:16Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "ac50f586_b7c3b0a8",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "485b74cc_dafe2eb8",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -143,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13f46f42_3bb22db1",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-27T21:40:16Z",
+      "side": 1,
+      "message": "\u003e we already convert all fsentries to fsevents (convert_iter_next), so what\u0027s more complex about doing it at that point?\n\nNot much other than it\u0027s not already coded. I\u0027ll give it a go when I rework the cli and the statx memcpy.\n\n\u003e rbh_fsevent\u0027s statx field is just as const (...) so I don\u0027t see how that helps.\n\nMy comment was about how struct rbh_fsevent uses a pointer for \"symlink\" rather than a flexible array member like rbh_fsentry.",
+      "parentUuid": "3fc0290d_e521ea79",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f8940ed_562fa080",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -190,6 +226,24 @@
       "side": 1,
       "message": "--project is hard to understand as a user, in my opinion.\n\n--sync [+-]FIELD?\n\nI don\u0027t feel strongly about the extra +- parsing; it actually could easily allow for the --only behaviour you suggested in another commit, but if we make +- mandatory it\u0027s really straightforward.",
       "parentUuid": "19a4a25a_4a37f83e",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c505f84_75e16382",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-27T21:40:16Z",
+      "side": 1,
+      "message": "\u003e --project is hard to understand as a user, in my opinion.\n\nAgreed\n\n\u003e --sync [+-]FIELD?\n\nI don\u0027t like the repetition \"rbh-sync --sync ...\".\n\n--field [+-]FIELD?\n\n\u003e I don\u0027t feel strongly about the extra +- parsing; it actually could easily allow for the --only behaviour you suggested in another commit, but if we make +- mandatory it\u0027s really straightforward.\n\nNot sure if I understand this correctly, but having slept on it, I do think the \u0027+\u0027/\u0027-\u0027 prefix is the correct way to go. And no prefix can mean \u0027--only\u0027/\u0027--exactly\u0027. (I believe this is what you meant as well, correct me if I\u0027m wrong).",
+      "parentUuid": "ed06c321_719cfa71",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
