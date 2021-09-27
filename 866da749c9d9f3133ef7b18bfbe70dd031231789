@@ -106,6 +106,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa791a94_240f2b4c",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T21:43:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "607b9b40_f38aaaeb",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "485b74cc_dafe2eb8",
@@ -177,6 +195,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f078093_4f0a7340",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T21:43:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "13f46f42_3bb22db1",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f8940ed_562fa080",
@@ -244,6 +280,24 @@
       "side": 1,
       "message": "\u003e --project is hard to understand as a user, in my opinion.\n\nAgreed\n\n\u003e --sync [+-]FIELD?\n\nI don\u0027t like the repetition \"rbh-sync --sync ...\".\n\n--field [+-]FIELD?\n\n\u003e I don\u0027t feel strongly about the extra +- parsing; it actually could easily allow for the --only behaviour you suggested in another commit, but if we make +- mandatory it\u0027s really straightforward.\n\nNot sure if I understand this correctly, but having slept on it, I do think the \u0027+\u0027/\u0027-\u0027 prefix is the correct way to go. And no prefix can mean \u0027--only\u0027/\u0027--exactly\u0027. (I believe this is what you meant as well, correct me if I\u0027m wrong).",
       "parentUuid": "ed06c321_719cfa71",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86b189b_59b6d6ff",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T21:43:21Z",
+      "side": 1,
+      "message": "\u003e --field [+-]FIELD?\n\nsure, works for me.\n\n\u003e And no prefix can mean \u0027--only\u0027/\u0027--exactly\u0027. (I believe this is what you meant as well, correct me if I\u0027m wrong).\n\nyes.",
+      "parentUuid": "0c505f84_75e16382",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
