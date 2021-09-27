@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac50f586_b7c3b0a8",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T11:00:13Z",
+      "side": 1,
+      "message": "Well, copying uninitialized memory will definitely not please tools like valgrind...\nBut for all intent and purpose it will \"work\", as long as the uninitialized memory that has been copied over is not accessed over there.\n\nAfraid there\u0027s no good solution here short of in-place editing the mask if we could have done that :/\nIf you think that\u0027s possible later™, I\u0027m happy with the current solution as a stopgap step.",
+      "parentUuid": "61a87adc_7ff37e38",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "485b74cc_dafe2eb8",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "\u003e couldn\u0027t we modify the source fsentry in place?\n\nWe technically can\u0027t:\n\n    struct rbh_fsentry {\n        (...)\n        const struct statx *statx;\n        (...)\n    };\n\nWhile the field is allocated on the heap with the mongo backend, there is no guarantee it always is the case (though you would be hard pressed to yield dynamically allocated fsentries with references to statically allocated memory, but eh).\n\n\u003e bit of a shame symlink and xattrs are embedded in the struct and we can\u0027t just pass a pointer along as the lifetime of the two fsentries are the same...\n\nYep, struct rbh_fsevent might be a better fit than struct rbh_fsentry for this sort of things. I just wanted to take the simplest approach for now.",
       "parentUuid": "485b74cc_dafe2eb8",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc0290d_e521ea79",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T11:00:13Z",
+      "side": 1,
+      "message": "\u003e const struct statx *statx\n\nmeh, self-inflicted pain that\u0027s what I call this :D\n\n\u003e Yep, struct rbh_fsevent might be a better fit than struct rbh_fsentry for this sort of things. I just wanted to take the simplest approach for now.\n\nhm, we already convert all fsentries to fsevents (convert_iter_next), so what\u0027s more complex about doing it at that point?\nbut rbh_fsevent\u0027s statx field is just as const, and the argument to rbh_fsevent_upsert_new comes straight from the const fsentry statx element, so I don\u0027t see how that helps.",
+      "parentUuid": "4008cb11_3879f6a5",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -142,6 +178,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed06c321_719cfa71",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T11:00:13Z",
+      "side": 1,
+      "message": "--project is hard to understand as a user, in my opinion.\n\n--sync [+-]FIELD?\n\nI don\u0027t feel strongly about the extra +- parsing; it actually could easily allow for the --only behaviour you suggested in another commit, but if we make +- mandatory it\u0027s really straightforward.",
+      "parentUuid": "19a4a25a_4a37f83e",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "705b9f1e_82571d4e",
         "filename": "rbh-sync.c",
         "patchSetId": 3
@@ -171,6 +225,24 @@
       "side": 1,
       "message": "Bah, worst case scenario, some people end up writing:\n\n  --exclude statx.blksize --exclude statx.attributes --exclude statx.nlink ...\n\nIf they ever open an issue about it, we can ask them how they would rephrase the help message to make it clearer.\n\nAlso, I should update the docs at some point. Could include some examples there to disambiguate. In my backlog.",
       "parentUuid": "705b9f1e_82571d4e",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5feb6cf_55fa31e3",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T11:00:13Z",
+      "side": 1,
+      "message": "yes, not fussy about this point.",
+      "parentUuid": "b3e22cdb_52c592bd",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -206,6 +278,24 @@
       "side": 1,
       "message": "In my backlog",
       "parentUuid": "6a9a0572_281bb870",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0389cfa_b53ebfdb",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T11:00:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7152871c_331d303c",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -294,6 +384,24 @@
       "side": 1,
       "message": "If the default was to include (actually) \"everything\", I think I would be up for it.\n\nWould it be OK to add an `--only FIELD` option that _sets_ the mask to `FIELD`? (either this, the `--project` option, having the default be _everything_, or something else if you have suggestions)",
       "parentUuid": "1d70423e_1aae623c",
+      "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b6ba20_c78c6c36",
+        "filename": "rbh-sync.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-27T11:00:13Z",
+      "side": 1,
+      "message": "not sure adding a third option will simplify things...\nperhaps just an --exclude all wildcard so anyone who\u0027d want to do that easily can?\n(marking as resolved as made moot with earlier comment)",
+      "parentUuid": "6baefa04_464a7528",
       "revId": "866da749c9d9f3133ef7b18bfbe70dd031231789",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
