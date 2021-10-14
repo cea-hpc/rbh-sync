@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "267585a1_78680726",
+        "filename": "rbh-sync.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-14T19:08:07Z",
+      "side": 1,
+      "message": "Yes, it can even be removed altogether as \u003crobinhood.h\u003e provides it (\u003crobinhood/statx.h\u003e is actually also redundant).",
+      "parentUuid": "2e6c7163_c2227cf3",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54410356_141ad8c5",
         "filename": "rbh-sync.c",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-14T13:09:05Z",
       "side": 1,
       "message": "minor: atime and blocks are missing, maybe others",
+      "range": {
+        "startLine": 597,
+        "startChar": 0,
+        "endLine": 601,
+        "endChar": 76
+      },
+      "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acfc5e83_8d65ad1a",
+        "filename": "rbh-sync.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-14T19:08:07Z",
+      "side": 1,
+      "message": "Good catch, thanks.",
+      "parentUuid": "54410356_141ad8c5",
       "range": {
         "startLine": 597,
         "startChar": 0,
