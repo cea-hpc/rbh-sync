@@ -16,6 +16,41 @@
       "message": "Good point. Won\u0027t be needed though once I replace all the if()/copy with a single memcpy() as Dominique suggested. Thanks though 👍",
       "revId": "dc15ff4c38bf4b7174c1d6e3a45b131d888e944a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bc9ae9_5783a382",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-10-15T23:32:42Z",
+      "side": 1,
+      "message": "(will review later if Q does -- lazy)",
+      "revId": "dc15ff4c38bf4b7174c1d6e3a45b131d888e944a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9acbb51f_369308a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-10-15T23:32:42Z",
+      "side": 1,
+      "message": "ah, on that point (memcpy of uninitialized memory), I had a comment from KMSAN people saying that they won\u0027t trigger an error when you copy/operate on uninitialized memory but will just propagate the uninitialized bit; then fail when it is later really used.\n\nI hope userspace tools are at least as clever.... So I tried eg. valgrind and it does the same:\n\n #include \u003cstddef.h\u003e\n#include \u003cstdlib.h\u003e\n#include \u003cstring.h\u003e\n\nvoid cpy(char *dst, char *src, size_t size) {\n\tmemcpy(dst, src, size);\n}\n\nint main() {\n\tchar foo[42];\n\tchar *bar;\n\n\tbar \u003d malloc(sizeof(foo));\n\tif (!bar)\n\t\treturn 1;\n\tcpy(bar, foo, sizeof(foo));\n\n\treturn bar[0];\n}\n\nfails with\n\u003d\u003d1226397\u003d\u003d Syscall param exit_group(status) contains uninitialised byte(s)\n\u003d\u003d1226397\u003d\u003d    at 0x494A021: _Exit (in /usr/lib64/libc-2.33.so)\n\u003d\u003d1226397\u003d\u003d    by 0x48BCC01: __run_exit_handlers (in /usr/lib64/libc-2.33.so)\n\u003d\u003d1226397\u003d\u003d    by 0x48BCC9F: exit (in /usr/lib64/libc-2.33.so)\n\u003d\u003d1226397\u003d\u003d    by 0x48A4B7B: (below main) (in /usr/lib64/libc-2.33.so)\n\nbut memcpy itself is legit.\nJust setting foo[0] before the cpy call also makes it happy, it does not care about the rest.\n(I also tried with a custom struct of which I only initialized a single field and it works the same, it doesn\u0027t care about uninitialized unused fields)",
+      "parentUuid": "f49a6552_1e627afc",
+      "revId": "dc15ff4c38bf4b7174c1d6e3a45b131d888e944a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
