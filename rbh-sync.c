@@ -351,8 +351,10 @@ statx_project(struct statx *dest, const struct statx *source, uint32_t mask)
     if (dest->stx_mask & RBH_STATX_DEV_MINOR)
         dest->stx_dev_minor = source->stx_dev_minor;
 
+#if CHECK_GLIBC_VERSION(2, 33)
     if (dest->stx_mask & RBH_STATX_MNT_ID)
         dest->stx_mnt_id = source->stx_mnt_id;
+#endif
 }
 
 #define SYMLINK_MAX_SIZE (1 << 16) /* 64KB */
