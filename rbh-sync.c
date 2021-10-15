@@ -19,6 +19,7 @@
 #include <string.h>
 #include <sysexits.h>
 
+#include <linux/version.h>
 #include <sys/stat.h>
 
 #include <robinhood.h>
@@ -351,8 +352,10 @@ statx_project(struct statx *dest, const struct statx *source, uint32_t mask)
     if (dest->stx_mask & RBH_STATX_DEV_MINOR)
         dest->stx_dev_minor = source->stx_dev_minor;
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,8,0)
     if (dest->stx_mask & RBH_STATX_MNT_ID)
         dest->stx_mnt_id = source->stx_mnt_id;
+#endif
 }
 
 #define SYMLINK_MAX_SIZE (1 << 16) /* 64KB */
