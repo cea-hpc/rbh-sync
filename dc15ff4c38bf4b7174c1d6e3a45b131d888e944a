@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49a6552_1e627afc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-15T23:22:36Z",
+      "side": 1,
+      "message": "Good point. Won\u0027t be needed though once I replace all the if()/copy with a single memcpy() as Dominique suggested. Thanks though 👍",
+      "revId": "dc15ff4c38bf4b7174c1d6e3a45b131d888e944a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
