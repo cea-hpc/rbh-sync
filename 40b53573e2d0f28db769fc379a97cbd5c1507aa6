@@ -71,6 +71,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bffa015a_cc79d138",
+        "filename": "rbh-sync.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T16:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "338b3606_1492980d",
+      "range": {
+        "startLine": 593,
+        "startChar": 13,
+        "endLine": 593,
+        "endChar": 19
+      },
+      "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54410356_141ad8c5",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "Good catch, thanks.",
       "parentUuid": "54410356_141ad8c5",
+      "range": {
+        "startLine": 597,
+        "startChar": 0,
+        "endLine": 601,
+        "endChar": 76
+      },
+      "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a26ff6a7_6383516f",
+        "filename": "rbh-sync.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T16:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acfc5e83_8d65ad1a",
       "range": {
         "startLine": 597,
         "startChar": 0,
