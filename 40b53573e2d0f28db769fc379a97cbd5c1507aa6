@@ -50,6 +50,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "338b3606_1492980d",
+        "filename": "rbh-sync.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T16:30:09Z",
+      "side": 1,
+      "message": "(defect) Just realizing that one _must_ allow updates on IDs because this is how _everything_ is indexed.\n\nThe same applies, to a lesser extent about (parent-id, name) one cannot be updated without the other. Therefore, asking to ignore either of these fields is equivalent to dropping all LINK events.\n\nWhat\u0027s not obvious to me is whether we should still update namespace xattrs... LINK events will create new fsentries if needed, but XATTRS events don\u0027t, so technically, they don\u0027t update (parent-id, name)...\n\nOn the one hand, skipping namespace xattr events makes things quite easy to implement, on the other hand, as a user, I might want to update namespace xattrs (eg. paths) without syncing the rest of the namespace. It\u0027s a bit more work, and it means I can\u0027t use the same projection on the \"from\"-side and the \"to\"-side, but I think it\u0027s worth it.",
+      "range": {
+        "startLine": 593,
+        "startChar": 13,
+        "endLine": 593,
+        "endChar": 19
+      },
+      "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54410356_141ad8c5",
         "filename": "rbh-sync.c",
         "patchSetId": 4
