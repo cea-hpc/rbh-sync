@@ -48,6 +48,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b733ac7f_d8e8412e",
+        "filename": "rbh-sync.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T16:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "267585a1_78680726",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "338b3606_1492980d",
