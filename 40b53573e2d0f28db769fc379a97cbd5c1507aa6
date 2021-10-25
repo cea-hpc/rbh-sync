@@ -212,6 +212,30 @@
       },
       "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d6249d7_c52d1c15",
+        "filename": "rbh-sync.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-25T18:36:42Z",
+      "side": 1,
+      "message": "My bad 😞\nDone now.",
+      "parentUuid": "41bf0924_a7c6bc5b",
+      "range": {
+        "startLine": 597,
+        "startChar": 0,
+        "endLine": 601,
+        "endChar": 76
+      },
+      "revId": "40b53573e2d0f28db769fc379a97cbd5c1507aa6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
