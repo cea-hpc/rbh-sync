@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4027b36f_4948ff05",
+        "filename": "rbh-sync.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-10-26T09:40:28Z",
+      "side": 1,
+      "message": "xattrs.ns?",
+      "range": {
+        "startLine": 301,
+        "startChar": 38,
+        "endLine": 301,
+        "endChar": 43
+      },
+      "revId": "3a4770f0c8a0e837acc764850fa5e6ec386d2058",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
