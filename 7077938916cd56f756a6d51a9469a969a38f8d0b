@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bc1bb7d_98023177",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-04T20:47:21Z",
+      "side": 1,
+      "message": "This emulates a \"goto retry\" or \"goto next\" with \"retry\"/\"next\" being a label at the beginning of the function.\n\nWe could write is a a do/while() loop if you prefer.",
+      "parentUuid": "e88a6fce_00d58077",
+      "range": {
+        "startLine": 336,
+        "startChar": 11,
+        "endLine": 336,
+        "endChar": 28
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3fa78f8_6aab1c2f",
         "filename": "rbh-sync.c",
         "patchSetId": 8
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-04T15:46:40Z",
       "side": 1,
       "message": "question: the content of the string is not checked ?",
+      "range": {
+        "startLine": 719,
+        "startChar": 30,
+        "endLine": 719,
+        "endChar": 37
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d984aa6_7db5bb6e",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-04T20:47:21Z",
+      "side": 1,
+      "message": "What would you want to check?",
+      "parentUuid": "b3fa78f8_6aab1c2f",
       "range": {
         "startLine": 719,
         "startChar": 30,
