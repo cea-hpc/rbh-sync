@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60aed518_8a893441",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-11-05T08:52:06Z",
+      "side": 1,
+      "message": "So if I understand correctly this function is called line 438 by the chunk iterator\u0027s next method. This means that if this fsentry needs to be converted to several fsevents, this will be done one fsevent at a time (and pushed to the `to` backend line 448) and then when this fsentry is fully converted, _convert_iter_next will be called and if there are more fsentries to convert (i.e. _convert_iter_next returns 0) we call convert_iter_next again (this time on the next entry) ?\n\nThis means that the chunk iterator will first iterate on all the fsevents that needs to be created and then go to the next fsentry ?\n\nSorry, I\u0027m still learning the internals of robinhood.",
+      "parentUuid": "3bc1bb7d_98023177",
+      "range": {
+        "startLine": 336,
+        "startChar": 11,
+        "endLine": 336,
+        "endChar": 28
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3fa78f8_6aab1c2f",
         "filename": "rbh-sync.c",
         "patchSetId": 8
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "What would you want to check?",
       "parentUuid": "b3fa78f8_6aab1c2f",
+      "range": {
+        "startLine": 719,
+        "startChar": 30,
+        "endLine": 719,
+        "endChar": 37
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc517cd_1629d4ef",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-11-05T08:52:06Z",
+      "side": 1,
+      "message": "Isn\u0027t the size of the name limited?",
+      "parentUuid": "1d984aa6_7db5bb6e",
       "range": {
         "startLine": 719,
         "startChar": 30,
