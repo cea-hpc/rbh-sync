@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fca2253b_0fc5d063",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-06T04:32:06Z",
+      "side": 1,
+      "message": "\u003e Sorry, I\u0027m still learning the internals of robinhood.\n\nNo worries, it\u0027s a good thing to ask questions.\n\n\u003e So if I understand correctly this...\n\nI think you got everything right, indeed.\n\nWith an example to makes sure there is no confusion. Following the execution of `sync`:\n\n fsentries \u003d (fsentry0, fsentry1, fsentry2, ...)\n fsevents \u003d (fsevent0-0, fsevent0-1, fsevent1-0, fsevent1-1, fsevent2-0, ...)\n chunks \u003d ((fsevent0-0, fsevent0-1, fsevent1-0), (fsevent1-1, fsevent2-0, ...), ...)\n # The chunk size is not 3 in practice, but it\u0027s just an example\n\n foreach chunk in chunks:\n    backend.update(chunk)",
+      "parentUuid": "60aed518_8a893441",
+      "range": {
+        "startLine": 336,
+        "startChar": 11,
+        "endLine": 336,
+        "endChar": 28
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3fa78f8_6aab1c2f",
         "filename": "rbh-sync.c",
         "patchSetId": 8
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Isn\u0027t the size of the name limited?",
       "parentUuid": "1d984aa6_7db5bb6e",
+      "range": {
+        "startLine": 719,
+        "startChar": 30,
+        "endLine": 719,
+        "endChar": 37
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b31399_50a6f972",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-06T04:32:06Z",
+      "side": 1,
+      "message": "For the Linux VFS, or for the mongo backend, probably, but for librobinhood itself, or rbh-sync, so long as it fits in memory, we don\u0027t really care.\n\nIf it works, all good, if it doesn\u0027t, why go through the trouble of catching the error at CLI-parsing time? It\u0027s not like this is something we expect users to do so often that we need to optimize the error reporting for it I think.\n\nThe main point being: there is no strict cross-backend limit on the size of an xattr\u0027s name.",
+      "parentUuid": "3dc517cd_1629d4ef",
       "range": {
         "startLine": 719,
         "startChar": 30,
