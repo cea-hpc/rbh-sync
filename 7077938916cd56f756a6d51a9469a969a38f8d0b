@@ -96,6 +96,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0f8a305_8aa42139",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-11-08T08:06:19Z",
+      "side": 1,
+      "message": "Thanks :)",
+      "parentUuid": "fca2253b_0fc5d063",
+      "range": {
+        "startLine": 336,
+        "startChar": 11,
+        "endLine": 336,
+        "endChar": 28
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3fa78f8_6aab1c2f",
@@ -181,6 +205,30 @@
       "side": 1,
       "message": "For the Linux VFS, or for the mongo backend, probably, but for librobinhood itself, or rbh-sync, so long as it fits in memory, we don\u0027t really care.\n\nIf it works, all good, if it doesn\u0027t, why go through the trouble of catching the error at CLI-parsing time? It\u0027s not like this is something we expect users to do so often that we need to optimize the error reporting for it I think.\n\nThe main point being: there is no strict cross-backend limit on the size of an xattr\u0027s name.",
       "parentUuid": "3dc517cd_1629d4ef",
+      "range": {
+        "startLine": 719,
+        "startChar": 30,
+        "endLine": 719,
+        "endChar": 37
+      },
+      "revId": "7077938916cd56f756a6d51a9469a969a38f8d0b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff54390d_3024d6bc",
+        "filename": "rbh-sync.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-11-08T08:06:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "25b31399_50a6f972",
       "range": {
         "startLine": 719,
         "startChar": 30,
