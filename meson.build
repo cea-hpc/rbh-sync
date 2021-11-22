@@ -20,6 +20,7 @@ add_project_arguments(['-D_GNU_SOURCE',], language: 'c')
 
 # Dependencies
 librobinhood = dependency('robinhood', version: '>=0.0.0')
+subdir('tests')
 
 executable(
     'rbh-sync',
