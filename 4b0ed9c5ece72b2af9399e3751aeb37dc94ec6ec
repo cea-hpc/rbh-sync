@@ -208,6 +208,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5228db0_700a5900",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-23T11:26:25Z",
+      "side": 1,
+      "message": "I don\u0027t really know, the full scan at least doesn\u0027t remove entries even if they don\u0027t exist in the to-be-synced directory, that\u0027s for certain currently.\nI also find that strange, but it the state of rbh-sync.",
+      "parentUuid": "235359bc_75309e2e",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b7ff0e0_02a83692",
         "filename": "tests/test_sync.bash",
         "patchSetId": 1
