@@ -76,6 +76,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3abb888_d78d7714",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-23T10:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31d4f3a0_7649e680",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68a3bc19_6089293f",
@@ -89,6 +107,24 @@
       "writtenOn": "2021-11-23T03:20:47Z",
       "side": 1,
       "message": "(suggest) make it preserve value if set e.g. rbh_sync\u003d${rbh_sync:-./rbh-sync} or similar, so one can test from another directory than the build dir or test installed binaries somewhere else if desired",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4c5fac_57209f30",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-23T10:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68a3bc19_6089293f",
       "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -112,6 +148,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fa20f3a_a6b5a43f",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-23T10:16:52Z",
+      "side": 1,
+      "message": "If you rm a file from the directory and sync it up again, the corresponding entry will still be in the database, so that test cannot work.\nDone for subdirectories and large subtree (which isn\u0027t randomly generated but I think that\u0027s fine ?)",
+      "parentUuid": "fc06d92e_7ccecb87",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b7ff0e0_02a83692",
         "filename": "tests/test_sync.bash",
         "patchSetId": 1
@@ -123,6 +177,24 @@
       "writtenOn": "2021-11-23T03:20:47Z",
       "side": 1,
       "message": "you run with set -e, so if an error happens this dir will never be cleaned up: suggest trap \"rm -rf \u0027$dir\u0027\" EXIT or similar (quotes in traps are always annoying, it\u0027s not strictly needed here)\n\nI\u0027d also suggest giving your temporary dir a name, so leftovers can be traced back to their sources if they pop up again. mktemp -d -t rbh_sync_test_sync.XXXXX or similar.",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09bf7642_22f28e1a",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-23T10:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b7ff0e0_02a83692",
       "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -140,6 +212,24 @@
       "writtenOn": "2021-11-23T03:20:47Z",
       "side": 1,
       "message": "is something supposed to cleanup the mongo table after the test ends?",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "554af83b_286f9785",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-23T10:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8512f26f_c25c3a42",
       "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
