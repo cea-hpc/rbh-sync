@@ -166,6 +166,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "235359bc_75309e2e",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-11-23T10:31:28Z",
+      "side": 1,
+      "message": "Oh, rbh-sync doesn\u0027t prune unlinked entries on a full scan?\niirc there should be two mode - partial scan which only adds entry and a full scan that remove entries it hasn\u0027t seen during the scan at the end of the scan... Or am I remembering something from Quentin\u0027s design plans that never were implemented, and one is supposed to drop the database and rescan if they want a rescan? (e.g. fsevents would be the only way of removing files from the db on normal workload)",
+      "parentUuid": "8fa20f3a_a6b5a43f",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b7ff0e0_02a83692",
         "filename": "tests/test_sync.bash",
         "patchSetId": 1
