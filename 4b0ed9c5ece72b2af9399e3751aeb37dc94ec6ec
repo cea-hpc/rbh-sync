@@ -262,6 +262,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "035e7d8f_fe579518",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-23T20:45:58Z",
+      "side": 1,
+      "message": "\u003e Oh, rbh-sync doesn\u0027t prune unlinked entries on a full scan?\n\nNo, can confirm it does not.\n\n\u003e iirc there should be two mode\n\nYes, there should... There should.\n\n\u003e - partial scan which only adds entry and a full scan that remove entries it hasn\u0027t seen during the scan at the end of the scan...\n\nWe had conversations about partial vs. full scans, and they might have overlapped with the destructive vs non-destructive issue, but I think the two features can/should exist independently.\n\n\u003e Or am I remembering something from Quentin\u0027s design plans that never were implemented\n\nSadly yes, all this is but a distant dream now. 😞\n\nTo be fair, we did implement partial scans, using backend branches (eg. rbh-sync rbh:posix:/mnt#dir-0 rbh:mongo:scratch). What we are lacking is the ability to detect, as we scan one backend, that there are obsolete links in another backend, which we should then garbage-collect. The idea being that querying each entry of a filesystem is costly enough that you don\u0027t want to do it twice.\n\nThen again, how much of a priority is it to garbage-collect obsolete links if you can scan your whole filesystem in under an hour and only have to do that when your event source (Lustre changelog readers / fanotify) fails you? 😋\n\n-----\n\n\u003e There\u0027s rbh-gc which seems to do exactly that but is still a work in progress.\n\nIt is lacking a README, and a few backlinks from other projects, but it should work. I am not aware of anything remaining to be done for this project to be functional.\n\nIt doesn\u0027t remove \"dead\" links, but that was never its purpose either. It looks for entries which are ripe for garbage collection according to the backend (using the RBH_GO_GC option), checks whether deleting them is safe, and then deletes them.\n\nFeel free to ask more about rbh-gc if you are curious or interested.",
+      "parentUuid": "b17ebe1f_9951306c",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b7ff0e0_02a83692",
         "filename": "tests/test_sync.bash",
         "patchSetId": 1

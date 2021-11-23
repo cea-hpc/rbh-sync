@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4c4b931_8cb8e80b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-23T20:45:58Z",
+      "side": 1,
+      "message": "Not sure if I\u0027m supposed to review the patch as well, so very quickly:\n\n- the use of the filename to indicate a dependency on a backend doesn\u0027t sit well with me;\n- I also haven\u0027t checked in detail, but I didn\u0027t see any check to make sure mongodb is installed and running;\n- a \u003e50 lines-long bash function with a single comment at the end doesn\u0027t really make me want to do a code review;\n- also, tests in bash 😢\n\nBottom line: so long as this isn\u0027t made part of the CI I run by adding a `subdir(\"tests\")` in the root meson.build, I don\u0027t mind merging it, just like we did with rbh-find.\n\nPS: just so it\u0027s clear, I can do a review if you\u0027d like, I just wasn\u0027t sure if you considered the patch ready for it.",
+      "revId": "a75a0fcc5937f76fa1a111aed06292ab868b7911",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
