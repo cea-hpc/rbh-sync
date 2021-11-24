@@ -33,6 +33,24 @@
       "message": "\u003e PS: just so it\u0027s clear, I can do a review if you\u0027d like, I just wasn\u0027t sure if you considered the patch ready for it.\n\nHmm, after reading the history, it seems quite clear I was asked for a review.\nWill do a proper one by Friday.",
       "revId": "a75a0fcc5937f76fa1a111aed06292ab868b7911",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4bda673_3ac54ec8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-24T08:44:57Z",
+      "side": 1,
+      "message": "Regarding the filename, it is the simplest way I found to divide each type of test, because otherwise, since we\u0027re always testing rbh-sync\u0027s behaviour, there\u0027s not really any reason to make multiple test files. So basing each test file on the source and destination backends made the most sense to me.\n\nFor the check of MongoDB, the first call to rbh-sync will fail with a somewhat explicit error, so I did not think it would be necessary, but I can add a simple systemctl status on the daemon if you think it\u0027s better.\n\nRegarding the comments, I understood in other patches that adding multiple comments was not something frequently done for RBH V4, so I did not add any if it wasn\u0027t to explain something peculiar or strange.\n\nAnd as for the tests in bash, it is still the simplest way to fully test rbh-sync, both the CLI and the actual behaviour.\n\nI understand that you do not want to add these tests the CI, but we created them to verify the basics of rbh-sync (and rbh-find on the other hand) work properly. The patch 527554 was a fix for a critical bug on the mongo branching part of rbh-sync/find that had been there since September 28. These tests are not extensive or testing very specific part of the code, but they at least provide an easy way to check everything was not broken.\n\nAnd yes, as you said in the following review, I do want you to review the patch of course 😊",
+      "parentUuid": "e4c4b931_8cb8e80b",
+      "revId": "a75a0fcc5937f76fa1a111aed06292ab868b7911",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
