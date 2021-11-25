@@ -51,6 +51,24 @@
       "parentUuid": "e4c4b931_8cb8e80b",
       "revId": "a75a0fcc5937f76fa1a111aed06292ab868b7911",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0d34977_42c764d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-25T22:01:25Z",
+      "side": 1,
+      "message": "\u003e Regarding the filename\n\nI don\u0027t mind that there is \"posix\" and \"mongo\" in the filename, I mind that meson.build uses this information to decide which dependency to check for before running the test.\n\n\u003e For the check of MongoDB, (...) I can add a simple systemctl status on the daemon if you think it\u0027s better.\n\nHmm, let\u0027s maybe leave that for a later time. The name of the systemd unit-file is distro-dependent. Same thing for the client (mongo is deprecated in favor of mongosh starting in 5.x).\n\n\u003e Regarding the comments, I understood in other patches that adding multiple comments was not something frequently done for RBH V4, so I did not add any if it wasn\u0027t to explain something peculiar or strange.\n\nFair enough\n\n\u003e And as for the tests in bash, it is still the simplest way to fully test rbh-sync, both the CLI and the actual behaviour.\n\nI think having a python wrapper for the C-API would make testing more interesting, but you\u0027re right, it\u0027s hard to test a command-line tool without running it, and bash is pretty good at launching command-line tools.\n\nThe issue with bash is that test frameworks are rare, and none of the ones I found looked particularly attractive to me. Not having a test framework means you have to take care of so many things that would be abstracted away in other contexts (setup/cleanup, parallelization, test harnesses, output format [0], ...)\n\n\u003e I understand that you do not want to add these tests the CI, but we created them to verify the basics of rbh-sync (and rbh-find on the other hand) work properly. The patch 527554 was a fix for a critical bug on the mongo branching part of rbh-sync/find that had been there since September 28. These tests are not extensive or testing very specific part of the code, but they at least provide an easy way to check everything was not broken.\n\nI do not want to add them to _my_ CI 😊 [1]\nIf you want to run them in your own CI, by all means.\n\n[0] https://testanything.org/\n[1] this is mostly out of concern that exploits are way too easy to write in a scripting language and that I run the CI on my machine. Also afraid of a wild (non-malicious) `rm -rf /`.",
+      "parentUuid": "c4bda673_3ac54ec8",
+      "revId": "a75a0fcc5937f76fa1a111aed06292ab868b7911",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
