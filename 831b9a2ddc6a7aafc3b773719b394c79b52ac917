@@ -22,6 +22,30 @@
       },
       "revId": "831b9a2ddc6a7aafc3b773719b394c79b52ac917",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "777987d7_48a2fe32",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-12-02T22:52:41Z",
+      "side": 1,
+      "message": "wait, sorry I haven\u0027t been following this closely, but....\n\n1/ I\u0027m not running tests with stuff installed on the system (likely installed as normal user in /opt/rbh*), or not installed at all and using LD_LIBRARY_PATH if I can get away with it, but also it doesn\u0027t have to be installed in /usr/lib64 -- on my real system it is installed in /nix/store/zj2vmkzb4vlw6z7nrj5yjzh0my49n3yz-robinhood-4.0.0/lib/librbh-mongo.so, and rbh-find has no problem finding it (yay runpath:\n\n  readelf -a /nix/store/l0kykbq5dd4fcsnh1jdgim6h2bcbwmrl-rbh-find-0.0.0/bin/rbh-find   | grep runpath\n   0x000000000000001d (RUNPATH)            Library runpath: [/nix/store/zj2vmkzb4vlw6z7nrj5yjzh0my49n3yz-robinhood-4.0.0/lib:/nix/store/z56jcx3j1gfyk4sv7g8iaan0ssbdkhz1-glibc-2.33-56/lib:/nix/store/c9f15p1kwm0mw5p13wsnvd1ixrhbhb12-gcc-10.3.0-lib/lib]\n\n) -- but even more \"normal\" systems like debian would install in /usr/lib/x86_64-linux-gnu .. or /usr/lib/aarch64-linux-gnu !, and even rhel-like could be 32 bits in /usr/lib on older arm32 systems)\n\n2/ similarly ldconfig -p doesn\u0027t work everywhere, this stuff isn\u0027t cached.\n3/ this doesn\u0027t test if a mongo server is actually running, so just having the lib doesn\u0027t say much...\n\nHaving an option for rbh tools to list available backends would probably be ideal but to be honest I don\u0027t think they can guess -- it\u0027s not realistic to list all libs called librbh-something in search paths.\nThe best way would be to just run the tool once with such an url to test:\n\n  $ /nix/store/l0kykbq5dd4fcsnh1jdgim6h2bcbwmrl-rbh-find-0.0.0/bin/rbh-find rbh:mongo:test; echo $?\n  0\n\n  $ /nix/store/l0kykbq5dd4fcsnh1jdgim6h2bcbwmrl-rbh-find-0.0.0/bin/rbh-find rbh:noexit:test; echo $?\n  /nix/store/l0kykbq5dd4fcsnh1jdgim6h2bcbwmrl-rbh-find-0.0.0/bin/rbh-find: rbh_backend_plugin_import: /nix/store/zj2vmkzb4vlw6z7nrj5yjzh0my49n3yz-robinhood-4.0.0/lib/librbh-noexit.so: cannot open shared object file: No such file or directory\n  1\n\n(note that in my case rbh-find did not actually issue any connect call here, I\u0027m not sure why, but I\u0027ve tested with an old version and need to update...)\n\n\nAnyway, I\u0027m not very likely to run this so feel free to go with whatever works for you, but please don\u0027t assume too much about how libs are installed. I think it\u0027s just as good to let tests fail if we can\u0027t detect, to be honest.",
+      "parentUuid": "594cb189_2fe65eda",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "831b9a2ddc6a7aafc3b773719b394c79b52ac917",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
