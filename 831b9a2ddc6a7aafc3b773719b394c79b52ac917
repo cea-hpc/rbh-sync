@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594cb189_2fe65eda",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-12-02T15:59:16Z",
+      "side": 1,
+      "message": "Another way to do this, in case we cannot ensure the libraries are stored there, we can run the following:\n\n ldconfig -p | grep librbh-posix\n\nThe only \"issue\" with this process is that I needed on our VM to first reload ldconfig cache, and it requests to be sudoer.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "831b9a2ddc6a7aafc3b773719b394c79b52ac917",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
