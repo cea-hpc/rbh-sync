@@ -236,6 +236,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "082b74c3_8d5bd7f8",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-07T11:47:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cc767e87_e6d5276d",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 144,
+        "endChar": 9
+      },
+      "revId": "8aa06f1dd096537fdbf103c56c352a16fbfc5097",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d0eb59b_d5f59b8d",
@@ -330,6 +354,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ba877b6_584234aa",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 7
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-07T11:47:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6acf465a_3c146606",
+      "range": {
+        "startLine": 155,
+        "startChar": 10,
+        "endLine": 155,
+        "endChar": 17
+      },
+      "revId": "8aa06f1dd096537fdbf103c56c352a16fbfc5097",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b728f328_713583a0",
@@ -414,6 +462,30 @@
       "side": 1,
       "message": "We indeed want to check that fileA is put in the DB. However, the --one option put the files as a root, and its actual name is forgotten. So I can\u0027t check for the name, and the easiest way I found is through the file size.",
       "parentUuid": "9f69f6db_07d10e5e",
+      "range": {
+        "startLine": 160,
+        "startChar": 3,
+        "endLine": 162,
+        "endChar": 61
+      },
+      "revId": "8aa06f1dd096537fdbf103c56c352a16fbfc5097",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82285d2e_a43278c8",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-07T11:47:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "01b0d361_18e1fc8d",
       "range": {
         "startLine": 160,
         "startChar": 3,

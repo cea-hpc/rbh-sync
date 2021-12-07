@@ -46,6 +46,30 @@
       },
       "revId": "831b9a2ddc6a7aafc3b773719b394c79b52ac917",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf5c2d5_11baf2fa",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-07T11:47:12Z",
+      "side": 1,
+      "message": "I went and just removed these two lines. There\u0027s no proper way to do this, so let\u0027s just remove them.",
+      "parentUuid": "777987d7_48a2fe32",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "831b9a2ddc6a7aafc3b773719b394c79b52ac917",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
