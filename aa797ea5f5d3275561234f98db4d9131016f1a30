@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f125a609_455660ae",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-09T12:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6365a53_02ae8e3f",
+      "range": {
+        "startLine": 3,
+        "startChar": 23,
+        "endLine": 3,
+        "endChar": 44
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbff5434_6418fc30",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-08T19:51:21Z",
       "side": 1,
       "message": "(major) This is a bad name for a function. I have no idea what this does from looking at how it is used.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 9
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea12705a_9c09a42f",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-09T12:16:55Z",
+      "side": 1,
+      "message": "Hopefully done.",
+      "parentUuid": "bbff5434_6418fc30",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c897dd7_b4b2bd42",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-09T12:16:55Z",
+      "side": 1,
+      "message": "I haven\u0027t found any way to do this properly. The closest solutions I found are from \"https://stackoverflow.com/questions/41222805/compare-a-mongo-diff-on-two-collections\" but none of them actually worked for our configuration.",
+      "parentUuid": "9d40cb99_a2f1639a",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1796b045_3443322a",
         "filename": "tests/test_posix_mongo_sync.bash",
         "patchSetId": 9
@@ -83,6 +155,30 @@
       "writtenOn": "2021-12-08T19:51:21Z",
       "side": 1,
       "message": "(major) Same remark as for the other test file: why not use a mongo shell command directly to make sure the xattr you are expecting is actually there.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 61
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9cd64c0_a7d88a8a",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-09T12:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1796b045_3443322a",
       "range": {
         "startLine": 84,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97ae0f92_98888d1c",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-09T12:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5723f66_4a17d84f",
+      "range": {
+        "startLine": 134,
+        "startChar": 5,
+        "endLine": 134,
+        "endChar": 27
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b484793_91b40550",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-12-08T19:51:21Z",
       "side": 1,
       "message": "(minor) Either of these three options would be better IMO\n\n- find .. -printf \u0027%P\\n\u0027\n- find .. | sed \u0027s/^..//\u0027\n- (cd ..; find;)",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 72
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e19f86_05665ca4",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-09T12:16:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1b484793_91b40550",
       "range": {
         "startLine": 138,
         "startChar": 4,
