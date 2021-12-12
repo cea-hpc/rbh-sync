@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c0e4796_29d177f7",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-12T23:38:29Z",
+      "side": 1,
+      "message": "(style) I would call this one mongosh, as it is \"the future\".\n\nAlso would include the --quiet option here.",
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

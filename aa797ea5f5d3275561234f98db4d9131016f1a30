@@ -95,6 +95,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63570252_bb43cc3e",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-12T23:38:29Z",
+      "side": 1,
+      "message": "That is better indeed.",
+      "parentUuid": "ea12705a_9c09a42f",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 9
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d40cb99_a2f1639a",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I haven\u0027t found any way to do this properly. The closest solutions I found are from \"https://stackoverflow.com/questions/41222805/compare-a-mongo-diff-on-two-collections\" but none of them actually worked for our configuration.",
       "parentUuid": "9d40cb99_a2f1639a",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "aa797ea5f5d3275561234f98db4d9131016f1a30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d67ce8bf_dfa9fd47",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-12T23:38:29Z",
+      "side": 1,
+      "message": "IIUC, the mongo shell is a JS REPL, and the `db.entries.find()` call returns JS objects.\n\nI expect you can write a function to compare objects (something similar to lodash\u0027s isEqual()).\n\nI\u0027m not quite sure what the best way to code it is, but I\u0027m sure it\u0027s possible.",
+      "parentUuid": "7c897dd7_b4b2bd42",
       "range": {
         "startLine": 92,
         "startChar": 0,
