@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "138458ad_9c17a6ea",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-15T18:49:53Z",
+      "side": 1,
+      "message": "It\u0027s because I added --nodb between --eval and \"$script\", put it at the beginning and you should be good.",
+      "parentUuid": "395676a0_59d64c95",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4529f772_b074dfe5",
         "filename": "tests/test_mongo_mongo_sync.bash",
         "patchSetId": 13
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "Yes, but I don\u0027t see any reason the order should differ between inputs in this test. The keys/values are entered during a sync, and I don\u0027t see why the order of registration would randomly change in the middle of a sync.\n\nCould you explain to me why the order is not guaranteed ?",
       "parentUuid": "c7d86e52_5915c554",
+      "range": {
+        "startLine": 71,
+        "startChar": 31,
+        "endLine": 71,
+        "endChar": 73
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c89efb1_e1d74ed8",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-15T18:49:53Z",
+      "side": 1,
+      "message": "\u003e Could you explain to me why the order is not guaranteed ?\n\nBecause librobinhood\u0027s API does not enforce the order in which fields are pushed to backends.\n\nFor example, with the mongo backend, we push bulk operations to MongoDB, unordered bulk operations.\n\n\u003e With an unordered operations list, MongoDB can execute in parallel, as well as in a nondeterministic order, the write operations in the list.\n\nref: https://docs.mongodb.com/manual/reference/method/Bulk/#unordered-operations",
+      "parentUuid": "12465e5e_7a2fe18a",
       "range": {
         "startLine": 71,
         "startChar": 31,
