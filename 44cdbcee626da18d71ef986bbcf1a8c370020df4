@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4a8d3f_5c7a1c78",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c0e4796_29d177f7",
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd0efa5a_a7902fb1",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-12-13T09:10:44Z",
       "side": 1,
       "message": "nit: Create test databases\u0027 names",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 29
+      },
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcc516f1_3b6dacc1",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd0efa5a_a7902fb1",
       "range": {
         "startLine": 37,
         "startChar": 6,
@@ -64,6 +106,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0dcd340_7650196d",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8331332b_035d449f",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 10
+      },
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60bdc9f3_2fc3ce24",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-12-13T09:10:44Z",
       "side": 1,
       "message": "minor: use [[ ]]",
+      "range": {
+        "startLine": 67,
+        "startChar": 11,
+        "endLine": 67,
+        "endChar": 12
+      },
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e175c10_80d5e581",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60bdc9f3_2fc3ce24",
       "range": {
         "startLine": 67,
         "startChar": 11,
@@ -110,6 +200,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae91a41f_8623ded0",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "compare_outputs check for substrings, so output2 could be substring of output1 and not have all necessary lines.",
+      "parentUuid": "ca2832f6_de03d431",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75a7076a_4ed1fe01",
@@ -123,6 +237,30 @@
       "writtenOn": "2021-12-13T09:10:44Z",
       "side": 1,
       "message": "question: if this is not true, I think the error will be detected by compare_outputs, no? Maybe this should be tested before compare_outputs.",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 6
+      },
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5351077_8f9f7684",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "No, because output2 here is supposed to be a substring of output1, it\u0027s supposed to have only 2 lines that are contained in output1. So compare_outputs cannot detect the error here.",
+      "parentUuid": "75a7076a_4ed1fe01",
       "range": {
         "startLine": 122,
         "startChar": 4,
@@ -156,6 +294,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1351167a_c89b0e6b",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1564dcb4_d88828ad",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 11
+      },
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9376adf3_53ebe38f",
@@ -169,6 +331,30 @@
       "writtenOn": "2021-12-13T09:10:44Z",
       "side": 1,
       "message": "suggest: Invalid number of files were synced",
+      "range": {
+        "startLine": 151,
+        "startChar": 14,
+        "endLine": 151,
+        "endChar": 53
+      },
+      "revId": "44cdbcee626da18d71ef986bbcf1a8c370020df4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d934be4_4d64c6f9",
+        "filename": "tests/test_posix_mongo_sync.bash",
+        "patchSetId": 10
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T09:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9376adf3_53ebe38f",
       "range": {
         "startLine": 151,
         "startChar": 14,
