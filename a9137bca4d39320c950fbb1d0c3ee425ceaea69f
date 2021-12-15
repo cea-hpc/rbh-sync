@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "028512a8_3d3f3ef6",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 12
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T10:33:51Z",
+      "side": 1,
+      "message": "We already use the database names everywhere else as global variables, it would be stranger to NOT use them as such here",
+      "parentUuid": "dd1e2224_43142d32",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "a9137bca4d39320c950fbb1d0c3ee425ceaea69f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea37b0f2_3f2648a4",
@@ -47,6 +71,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c14488ee_3d2b5ff5",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 12
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T10:33:51Z",
+      "side": 1,
+      "message": "Not exactly merged, but improved.",
+      "parentUuid": "ea37b0f2_3f2648a4",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 40
+      },
+      "revId": "a9137bca4d39320c950fbb1d0c3ee425ceaea69f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c26107c_4c1d9dad",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-12-15T10:03:27Z",
       "side": 1,
       "message": "minor: these are useless now (and in test_sync_branch)",
+      "range": {
+        "startLine": 97,
+        "startChar": 20,
+        "endLine": 97,
+        "endChar": 41
+      },
+      "revId": "a9137bca4d39320c950fbb1d0c3ee425ceaea69f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55fdad74_3c897377",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 12
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T10:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c26107c_4c1d9dad",
       "range": {
         "startLine": 97,
         "startChar": 20,
