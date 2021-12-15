@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87043a41_d4d4d207",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T15:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60b63381_a02e0347",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f3f42e8_e7d1607f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-15T13:22:43Z",
       "side": 1,
       "message": "(major) The API is really throwing me off here.\n\nWe don\u0027t indicate which databases are compared, it\u0027s hard-coded. And we don\u0027t even \"compare\" two databases, we check that all the elements of one are included in the other.\n\nHere is an example of an API which I find nicer:\n\n printf -v expected \u0027new Mongo().getDB(\"%s\").entries.find(\n     {\n         \"ns.xattr.path\": {\n             $regex: \"^/dir\"\n         }\n     },\n ).sort(_id: 1)\u0027 \"$testdb1\"\n printf -v actual \u0027new Mongo().getDB(\"%s\").entries.find().sort(_id: 1)\u0027 \"$testdb2\"\n\n cursordiff \"$actual\" \"$expected\"\n \nThen cursordiff can be something like:\n\n cursordiff()\n {\n     local script\n     \n     printf -v script \u0027\n         function every(iterable, func) {\n             for (item of iterable) {\n                 if (!func(item))\n                     return false;\n             }\n             return true;\n         }\n         \n         function* keys(obj) {\n             for (key in obj)\n                 yield key;\n         }\n         \n         function isEqual(obj1, obj2) {\n             if (typeof(obj1) !\u003d\u003d typeof(obj2)) {\n                 return false;\n             }\n             if (typeof(obj1) \u003d\u003d\u003d \"object\") {\n                 return every(keys(obj1), key \u003d\u003e isEqual(obj1[key], obj2[key]));\n             }\n             return obj1 \u003d\u003d\u003d obj2;\n         }\n         \n         function* zip(cur1, cur2) {\n             while (cur1.hasNext() \u0026\u0026 cur2.hasNext())\n                 yield [cur1.next(), cur2.next()];\n         }\n         \n         const cur1 \u003d %s;\n         const cur2 \u003d %s;\n\n         every(zip(cur1, cur2), ([obj1, obj2]) \u003d\u003e isEqual(obj1, obj2));\n     \u0027 \"$1\" \"$2\"\n     \n     \"$(mongosh --eval --nodb \"$script\")\"\n }\n \nThis snippet raises the following exception with mongosh:\n\n ReferenceError: _de10 is not defined\n\nBut runs fine with mongo. Looks like a bug in the shell\u0027s implementation.\n\nThe functions `every()` and `keys()` could be replaced by their builtin JS implementation but only `mongosh` provides them.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "395676a0_59d64c95",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T15:25:39Z",
+      "side": 1,
+      "message": "The code you gave doesn\u0027t work for me, mongo outputs the following:\n`\n./test_mongo_mongo_sync.bash: line 94: $\u00272021-12-15T15:19:26.473+0000 F  -        [main] exception: \\\u0027[\\\u0027 present, but not first character in  key \u003d\u003e isEqual(obj1[key]:27017\\n2021-12-15T15:19:26.473+0000 E  -        [main] exiting with code 1\u0027: command not found\n\n`\n\nI am unfortunately not versed enough in Mongo or Javascript to understand what this means, and I didn\u0027t find any help online.",
+      "parentUuid": "3f3f42e8_e7d1607f",
       "range": {
         "startLine": 55,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "977f1668_0c9d7729",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T15:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4529f772_b074dfe5",
+      "range": {
+        "startLine": 61,
+        "startChar": 27,
+        "endLine": 61,
+        "endChar": 35
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "586f207b_0d5d7dbc",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-12-15T13:22:43Z",
       "side": 1,
       "message": "(style) missing space",
+      "range": {
+        "startLine": 63,
+        "startChar": 46,
+        "endLine": 63,
+        "endChar": 47
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "749624f8_049c8743",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T15:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "586f207b_0d5d7dbc",
       "range": {
         "startLine": 63,
         "startChar": 46,
@@ -116,6 +212,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f830f6f_ac1fb091",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T15:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e88411b8_7b884ac8",
+      "range": {
+        "startLine": 64,
+        "startChar": 63,
+        "endLine": 64,
+        "endChar": 64
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5519182_f71010be",
@@ -139,6 +259,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6c53103_effb7213",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T15:25:39Z",
+      "side": 1,
+      "message": "Done, changed the name of the function.",
+      "parentUuid": "e5519182_f71010be",
+      "range": {
+        "startLine": 64,
+        "startChar": 5,
+        "endLine": 66,
+        "endChar": 13
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7d86e52_5915c554",
@@ -152,6 +296,30 @@
       "writtenOn": "2021-12-15T13:22:43Z",
       "side": 1,
       "message": "(minor) This depends on the order of the keys, which we don\u0027t guarantee:\n\n test\u003e db.test.insertOne({\"a\": 0, \"b\": 1, \"c\": 2})\n {\n   acknowledged: true,\n   insertedIds: ObjectId(\"1\")\n }\n test\u003e db.test.insertOne({\"a\": 0, \"c\": 2, \"b\": 1})\n {\n   acknowledged: true,\n   insertedId: ObjectId(\"2\")\n }\n test\u003e db.test.find()\n [\n   { _id: ObjectId(\"1\"), a: 0, b: 1, c: 2 },\n   { _id: ObjectId(\"2\"), a: 0, c: 2, b: 1 }\n ]",
+      "range": {
+        "startLine": 71,
+        "startChar": 31,
+        "endLine": 71,
+        "endChar": 73
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12465e5e_7a2fe18a",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-15T15:25:39Z",
+      "side": 1,
+      "message": "Yes, but I don\u0027t see any reason the order should differ between inputs in this test. The keys/values are entered during a sync, and I don\u0027t see why the order of registration would randomly change in the middle of a sync.\n\nCould you explain to me why the order is not guaranteed ?",
+      "parentUuid": "c7d86e52_5915c554",
       "range": {
         "startLine": 71,
         "startChar": 31,
