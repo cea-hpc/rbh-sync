@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01fb0bb5_080ce71d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2021-12-16T13:25:58Z",
+      "side": 1,
+      "message": "This patch is now submitted for quite some time and it\u0027s already at its 14th version, which turns to be discouraging...\nWould it be possible to checkpoint this patch at this point, i.e.\n1) agree on an initial version of this patch that could be landed right now\nwith no extra work, and which already brings an improvement to the project: better than no test at all.\n2) identify problematic parts to be removed from this version, and that will require more work, and should be submitted in a later change.",
+      "revId": "17766d89993ce42363f72ec46f87035539a03c90",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
