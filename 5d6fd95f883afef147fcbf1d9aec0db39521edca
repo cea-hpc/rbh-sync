@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd6fb423_a221a1e1",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-16T09:36:08Z",
+      "side": 1,
+      "message": "Putting the \u0027--nodb\u0027 before changes the error to:\n-\n./test_mongo_mongo_sync.bash: line 94: $\u00272021-12-16T09:29:33.950+0000 E  QUERY    [js] uncaught exception: SyntaxError: missing ) after argument list :\\n@(shell eval):30:105\\n2021-12-16T09:29:33.950+0000 E  -        [main] exiting with code -4\u0027: command not found\n-",
+      "parentUuid": "138458ad_9c17a6ea",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4529f772_b074dfe5",
         "filename": "tests/test_mongo_mongo_sync.bash",
         "patchSetId": 13
@@ -368,6 +392,30 @@
       "side": 1,
       "message": "\u003e Could you explain to me why the order is not guaranteed ?\n\nBecause librobinhood\u0027s API does not enforce the order in which fields are pushed to backends.\n\nFor example, with the mongo backend, we push bulk operations to MongoDB, unordered bulk operations.\n\n\u003e With an unordered operations list, MongoDB can execute in parallel, as well as in a nondeterministic order, the write operations in the list.\n\nref: https://docs.mongodb.com/manual/reference/method/Bulk/#unordered-operations",
       "parentUuid": "12465e5e_7a2fe18a",
+      "range": {
+        "startLine": 71,
+        "startChar": 31,
+        "endLine": 71,
+        "endChar": 73
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48840b56_d2ef42e0",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-16T09:36:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2c89efb1_e1d74ed8",
       "range": {
         "startLine": 71,
         "startChar": 31,
