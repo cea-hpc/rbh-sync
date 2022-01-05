@@ -193,6 +193,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3f16b35_181ab6d7",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2022-01-05T23:15:08Z",
+      "side": 1,
+      "message": "It\u0027s not super nice if I have to figure out what you changed. 😞\n\nIf I got that right, you did:\n\n -     \"$(mongosh --eval --nodb \"$script\")\"\n +     mongosh --nodb --eval \"$script\" ||\n +         error \"sync resulted in different db state\"\n\nThe reason why I executed mongosh inside a subshell is because the script evaluates to the strings \"true\" or \"false\", which happen to also be bash builtins that do what you can expect. Something along the lines of:\n\n true() { return 0; }\n false() { return 1; }\n \nAFAICT, \u0027mongosh --nodb --eval \"$script\"\u0027 returns successfully unless there is a syntax error in the script, meaning your test will never fail.",
+      "parentUuid": "488ee8bd_d1908f67",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4529f772_b074dfe5",
         "filename": "tests/test_mongo_mongo_sync.bash",
         "patchSetId": 13
