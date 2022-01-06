@@ -217,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50756b7b_7c4dd1f2",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-01-06T12:01:54Z",
+      "side": 1,
+      "message": "Yes my bad, I thought I uploaded an earlier version with your base code, but I didn\u0027t...\nCompared to your script, I changed 3 things: the --nodb place in the command line, added brackets in the \"sort\" specification of the \"entries.find().sort()\", and removed the use of a subshell.\n\nThe problem we have with your version on the mongosh line is that the \"set -e\" is not triggered by the failure of that same line :\n\n```\n# consider I call the script with an invalid regex (\u0027$regex: \"^/dr\"\u0027), which triggers the condition right under:\n\n\u0027\nprintf -v script \u0027\n\n ...\n \nif (cur1.size() !\u003d cur2.size())\n    quit(1);\n\nevery(zip(cur1, cur2), ([obj1, obj2]) \u003d\u003e isEqual(obj1, obj2));\n\u0027 \"$1\" \"$2\"\n\n    \"$(mongosh --nodb --eval \"$script\")\"\n\u0027\n\n# I get the following output:\n\n./test_mongo_mongo_sync.bash: line 99: : command not found       \ntest_sync_branch: ✖\n\n# line 99 is the line of the call of mongosh\n\n# If I use the correct regex (\u0027$regex: \"^/dir\"\u0027), there is no error, and none is triggered\n\ntest_sync_branch: ✔\n\n# Now if I trigger a syntax error in the script, for instance by changing the lines to the following (notice that \"quit(1)\" became \"qut(1)\"):\n\n\u0027\nprintf -v script \u0027\n\n ...\n \nif (cur1.size() !\u003d cur2.size())\n    qut(1);\n\nevery(zip(cur1, cur2), ([obj1, obj2]) \u003d\u003e isEqual(obj1, obj2));\n\u0027 \"$1\" \"$2\"\n\n    \"$(mongosh --nodb --eval \"$script\")\"\n\u0027\n\n# If I use the wrong regexp (\u0027$regex: \"^/dr\"\u0027), I get this error:\n\n./test_mongo_mongo_sync.bash: line 99: $\u00272022-01-06T11:46:01.395+0000 E  QUERY    [js] uncaught exception: ReferenceError: qit is not defined :\\n@(shell eval):37:13\\n2022-01-06T11:46:01.395+0000 E  -        [main] exiting with code -4\u0027: command not found\ntest_sync_branch: ✖\n\n\n# If I use the correct one (\u0027$regex: \"^/dir\"\u0027), I get no error:\n\ntest_sync_branch: ✔\n\n```\n\nSo while the test fails and completes as expected, the output is pretty ugly. Moreover, even when there is an error, the script does not end:\n\n```\n# invalid regexp\n\n\"$(mongosh --nodb --eval \"$script\")\"\n\necho \"? \u003d $?\"\necho \"output\u003d $output\"\necho \"a\"\n\n# The output is:\n\n./test_mongo_mongo_sync.bash: line 99: : command not found\n? \u003d 127\noutput\u003d \na\ntest_sync_branch: ✔\n\n# Which is a problem\n\n```\n\nSo using the script as is does not produce a \"good looking\" output, and the script\u0027s failure does not evaluate to false unfortunately.\nIf I just remove the quotes, the \"command not found\" output is removed, and I get the errors as expected.\nSo I can add a \"|| error\" alongside it to get a proper output.\n\nHowever, I then have another question: what\u0027s the point of using a subshell there, since we\u0027re already inside a subshell (with the \u0027(\"$test\")\u0027), inside another subshell (in the for loop) ?",
+      "parentUuid": "c3f16b35_181ab6d7",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4529f772_b074dfe5",
         "filename": "tests/test_mongo_mongo_sync.bash",
         "patchSetId": 13
