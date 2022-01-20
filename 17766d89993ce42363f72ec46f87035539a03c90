@@ -88,6 +88,24 @@
       "parentUuid": "a3b7bca3_dfbee57b",
       "revId": "17766d89993ce42363f72ec46f87035539a03c90",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b87ae397_ff7d19ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2022-01-20T20:26:31Z",
+      "side": 1,
+      "message": "\u003e Are you okay with that?\n\nYes, that sounds good. 👍\n\n\u003e Also, your reviews are still wanted are appreciated, we will always use them 😊\n\nI just want to point out that I\u0027m not taking offense at anything.\n\nI think we should focus our efforts where we can create the most value, and I also think it would be more efficient for me to send patches on top of the tests you write, rather than go through 16 other iterations of the patch.\n\nIt\u0027s probably frustrating for you, it\u0027s definitely a little frustrating for me, I don\u0027t think we need any of that.\n\nI may not find the time to send such patches, but in this case, maybe I didn\u0027t have the time to do 16 reviews in the first place.\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nAs an aside, I haven\u0027t made any progress on the Python bindings and I don\u0027t think I will work on it again any time soon.\n\nI\u0027m giving myself a bit of time to do other things, at least until the 5.17 kernel release reaches ArchLinux (~April). This version should bring FA_RENAME events, which I have been waiting for to implement an fanotify connector.\n\nStill available for reviews of course.",
+      "parentUuid": "7194243b_d330c026",
+      "revId": "17766d89993ce42363f72ec46f87035539a03c90",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
