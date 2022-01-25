@@ -239,6 +239,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1732f002_0947fb23",
+        "filename": "tests/test_mongo_mongo_sync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-01-25T09:57:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "50756b7b_7c4dd1f2",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "5d6fd95f883afef147fcbf1d9aec0db39521edca",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4529f772_b074dfe5",

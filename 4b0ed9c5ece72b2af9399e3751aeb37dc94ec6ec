@@ -278,6 +278,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f1439f5_e217bafd",
+        "filename": "tests/test_sync.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-01-25T09:57:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "035e7d8f_fe579518",
+      "revId": "4b0ed9c5ece72b2af9399e3751aeb37dc94ec6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b7ff0e0_02a83692",
