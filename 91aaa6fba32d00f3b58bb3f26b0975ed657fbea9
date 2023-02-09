@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "151de1d5_bad1b4cf",
+        "filename": "README.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "Yes it works:\n```\n[root@vm0 lustre]# rbh-find rbh:mongo:blob\n/\n/a\n/b\n[root@vm0 lustre]# lfs path2fid tmp/a \n[0x200000401:0x82:0x0]\n[root@vm0 lustre]# rbh-find rbh:mongo:blob#[0x200000401:0x82:0x0]\n/a\n```",
+      "parentUuid": "e0c63ac5_3963bcc2",
+      "range": {
+        "startLine": 95,
+        "startChar": 23,
+        "endLine": 95,
+        "endChar": 42
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da7fd33b_1beb8859",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-06T14:58:49Z",
       "side": 1,
       "message": "I don\u0027t think you need to add this in each file. As long as is has been exectuted before meson reads this file, you will have access to liblustre.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e6ef711_de2b5f0f",
+        "filename": "tests/meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "True, but rbh-sync itself doesn\u0027t depend on Lustre, only this specific test does, but I see your point",
+      "parentUuid": "da7fd33b_1beb8859",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8363e6ad_ff2cbba0",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e9187b59_c0462a8a",
+      "range": {
+        "startLine": 44,
+        "startChar": 10,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc643776_351f2a10",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-02-06T14:58:49Z",
       "side": 1,
       "message": "major: you don\u0027t test archived",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 20
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a0f2a1_9654d975",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc643776_351f2a10",
       "range": {
         "startLine": 45,
         "startChar": 4,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f1006dc_119e62a8",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "As you said, these files will have the flags you described. Then what I do is I retrieve the hsm-state of each file by Lustre, and verify that only one entry in the database has that corresponding hsm-state. For instance, the hsm-state of archived indeed \"archived | exists | noarchive | norelease\". The combination of those flags by Lustre is then converted to a hexa then decimal, and the value is 57. So we search in the DB if a single entry a hsm_state equal to 57, which is true, and it is the file called \"archived\".\n\nTesting with a simple file would only check it for a single combination, so I figured I should try with a few more.\n\nHowever, indeed, I do not check that each entry in the database really is the one we expect, only that it is the only one with that hsm_state.\n\nAlso, since we changed how the hsm_state/archive_id retrieval works with I1c941db5db1eeced644fb36c3cc0a802dd75dc8c, the test does a lot less.",
+      "parentUuid": "f5461936_91a1d4d4",
+      "range": {
+        "startLine": 107,
+        "startChar": 8,
+        "endLine": 111,
+        "endChar": 11
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d51bb50_3c6384a4",
         "filename": "tests/test_lustre_mongo_sync.bash",
         "patchSetId": 3
@@ -129,6 +249,30 @@
       "writtenOn": "2023-02-06T14:58:49Z",
       "side": 1,
       "message": "question: why is there a file with archive id 0? If the file doesn\u0027t have an HSM attribute, it shouldn\u0027t have an archive id at all. Also, archive id 0 has a sort of special meaning in Lustre-HSM. This is the archive id used by copytool to say \"I can handle any archive id\". This can be very confusing to see I think.",
+      "range": {
+        "startLine": 135,
+        "startChar": 20,
+        "endLine": 135,
+        "endChar": 48
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fab925ec_bb1eb058",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "Apparently, this is a bug in Lustre:\n```\nrc2 \u003d mo_xattr_get(info-\u003emti_env, next, buf, XATTR_NAME_HSM);    \nrc2 \u003d lustre_buf2hsm(info-\u003emti_xattr_buf, rc2, \u0026ma-\u003ema_hsm);     \nif (rc2 \u003d\u003d 0)                                                    \n        ma-\u003ema_valid |\u003d MA_HSM;                                  \nelse if (rc2 \u003c 0 \u0026\u0026 rc2 !\u003d -ENODATA)                             \n        GOTO(out, rc \u003d rc2);\n```\nENODATA is ignored here, but Lustre still gives back correct values if asked to provide HSM info for files not on HSM, we will do a patch to librobinhood to fix this (and I\u0027ll update the commit message in consequence).",
+      "parentUuid": "0d51bb50_3c6384a4",
       "range": {
         "startLine": 135,
         "startChar": 20,
@@ -162,6 +306,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32854fa2_65b96b03",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "Done but not with migrate, as it apparently ignores -N, by using lfs extend.",
+      "parentUuid": "c62e7359_0e2eb133",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 18
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dabe1a20_f04712bb",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-02-06T14:58:49Z",
       "side": 1,
       "message": "DoM is a layout parameter `-L` and overstripping is simply to use a stripe count greater than the number of OSTs but I don\u0027t know if it\u0027s supported on 2.12.",
+      "range": {
+        "startLine": 210,
+        "startChar": 36,
+        "endLine": 210,
+        "endChar": 39
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa302b4d_faf8743c",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dabe1a20_f04712bb",
       "range": {
         "startLine": 210,
         "startChar": 36,
@@ -208,6 +400,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf3401a9_a615fa05",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "No, we store the pattern as what Lustre gives back with, a.k.a. `llapi_layout_pattern_get`. The returned integer correspond to the macro defined in lustreapi.h:\n```\n 791 #define LLAPI_LAYOUT_RAID0| |   0ULL                                            \n 792 #define LLAPI_LAYOUT_MDT|   |   2ULL                                            \n 793 #define LLAPI_LAYOUT_OVERSTRIPING|  4ULL\n```\nIdem for the flags.\n\nRBh-lfind doesn\u0027t manage these yet, but we most likely will have to do it the same, take in either \"mdt\", \"raid0\" or \"overstriping\", convert them to their macro values, and filter the DB.",
+      "parentUuid": "7c9033dc_9391f9c1",
+      "range": {
+        "startLine": 220,
+        "startChar": 26,
+        "endLine": 220,
+        "endChar": 33
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d6ccaa0_9886de14",
@@ -221,6 +437,30 @@
       "writtenOn": "2023-02-06T14:58:49Z",
       "side": 1,
       "message": "style: wrong indentation",
+      "range": {
+        "startLine": 323,
+        "startChar": 17,
+        "endLine": 323,
+        "endChar": 18
+      },
+      "revId": "91aaa6fba32d00f3b58bb3f26b0975ed657fbea9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f7ba78_e4fcfd90",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T09:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d6ccaa0_9886de14",
       "range": {
         "startLine": 323,
         "startChar": 17,
