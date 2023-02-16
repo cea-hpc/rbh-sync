@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b557efa2_f4364386",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-16T09:34:16Z",
+      "side": 1,
+      "message": "minor: remove this comment",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 46
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
