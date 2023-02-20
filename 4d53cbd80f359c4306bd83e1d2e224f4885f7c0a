@@ -3,6 +3,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b61eca2f_2bae4cb9",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-20T07:46:36Z",
+      "side": 1,
+      "message": "major: Identifier?",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca3ff419_664c2b2a",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-20T07:46:36Z",
+      "side": 1,
+      "message": "question: I already saw this function in another patch, will it be mutualized?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e33e6366_984de829",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-20T07:46:36Z",
+      "side": 1,
+      "message": "typo? did you mean bashism?",
+      "range": {
+        "startLine": 48,
+        "startChar": 32,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1742dbf7_8e58a961",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-20T07:46:36Z",
+      "side": 1,
+      "message": "question: why do you not also search for the path? just to ensure the correct file gets the correct state?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b557efa2_f4364386",
         "filename": "tests/test_lustre_mongo_sync.bash",
         "patchSetId": 4
