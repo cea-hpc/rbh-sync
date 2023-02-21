@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f845266_02a71b04",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-21T10:16:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b61eca2f_2bae4cb9",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca3ff419_664c2b2a",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-20T07:46:36Z",
       "side": 1,
       "message": "question: I already saw this function in another patch, will it be mutualized?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2f04b4_36a7eb81",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-21T10:16:18Z",
+      "side": 1,
+      "message": "The patch in question is for rbh-find-lustre, so no this will not be mutualized.",
+      "parentUuid": "ca3ff419_664c2b2a",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81610ac9_53a46054",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-21T10:16:18Z",
+      "side": 1,
+      "message": "Yep",
+      "parentUuid": "e33e6366_984de829",
+      "range": {
+        "startLine": 48,
+        "startChar": 32,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1742dbf7_8e58a961",
@@ -93,6 +165,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e33f7d0_11ff81dc",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-21T10:16:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1742dbf7_8e58a961",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b557efa2_f4364386",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-02-16T09:34:16Z",
       "side": 1,
       "message": "minor: remove this comment",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 46
+      },
+      "revId": "4d53cbd80f359c4306bd83e1d2e224f4885f7c0a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0844d6ad_90d6b24c",
+        "filename": "tests/test_lustre_mongo_sync.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-21T10:16:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b557efa2_f4364386",
       "range": {
         "startLine": 175,
         "startChar": 0,
